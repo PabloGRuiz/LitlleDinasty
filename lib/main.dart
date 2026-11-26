@@ -11,6 +11,7 @@ import 'widgets/event_modal.dart';
 import 'widgets/hero_life_view.dart';
 import 'widgets/profession_view.dart';
 import 'widgets/semester_actions_view.dart';
+import 'widgets/social_view.dart';
 import 'widgets/top_hud.dart';
 
 void main() {
@@ -85,6 +86,7 @@ class _MedievalHomeShellState extends ConsumerState<MedievalHomeShell> {
                               setState(() => _currentTab = LifeTab.semester),
                         ),
                         const SemesterActionsView(),
+                        const SocialView(),
                         const ProfessionView(),
                         const ChroniclesView(),
                       ],

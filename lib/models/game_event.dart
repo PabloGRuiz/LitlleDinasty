@@ -2,6 +2,7 @@ import 'character.dart';
 import 'currency.dart';
 import 'life_stage.dart';
 import 'stats.dart';
+import 'world_state.dart';
 
 /// Requisito de atributo con probabilidad de éxito continua (0..100%).
 class StatCheck {
@@ -49,7 +50,7 @@ class EventOutcome {
   }
 }
 
-/// Opción seleccionable dentro de un evento de etapa vital.
+/// Opción seleccionable dentro de un evento de etapa vital o hito de destino.
 class EventChoice {
   const EventChoice({
     required this.id,
@@ -58,6 +59,13 @@ class EventChoice {
     required this.successOutcome,
     this.failureOutcome,
     this.minCopperRequired = 0,
+    this.isDestinyChoice = false,
+    this.destinyPreview,
+    this.setsRoute,
+    this.setsLocation,
+    this.addsFlag,
+    this.setsEnrolledInSchool,
+    this.setsChildWorker,
   });
 
   final String id;
@@ -66,6 +74,13 @@ class EventChoice {
   final EventOutcome successOutcome;
   final EventOutcome? failureOutcome;
   final int minCopperRequired;
+  final bool isDestinyChoice;
+  final String? destinyPreview;
+  final StoryRoute? setsRoute;
+  final WorldLocation? setsLocation;
+  final String? addsFlag;
+  final bool? setsEnrolledInSchool;
+  final bool? setsChildWorker;
 }
 
 /// Plantilla de evento perteneciente a una de las 6 etapas de la vida.
@@ -74,6 +89,8 @@ class GameEventDefinition {
     required this.id,
     required this.stage,
     required this.title,
+    this.requiresManaAwakened = false,
+    this.requiresEnrolledInSchool = false,
     required this.narrativeBuilder,
     required this.choices,
   });
@@ -81,6 +98,8 @@ class GameEventDefinition {
   final String id;
   final LifeStage stage;
   final String title;
+  final bool requiresManaAwakened;
+  final bool requiresEnrolledInSchool;
   final String Function(Protagonist hero, String npcName) narrativeBuilder;
   final List<EventChoice> choices;
 }
@@ -94,6 +113,9 @@ class ActiveGameEvent {
     required this.narrative,
     required this.npcName,
     required this.choices,
+    this.isStoryEvent = false,
+    this.awakenedManaValue,
+    this.triggersPrimaryDevelopment = false,
   });
 
   final String eventId;
@@ -102,6 +124,9 @@ class ActiveGameEvent {
   final String narrative;
   final String npcName;
   final List<EventChoice> choices;
+  final bool isStoryEvent;
+  final int? awakenedManaValue;
+  final bool triggersPrimaryDevelopment;
 }
 
 /// Resultado devuelto al resolver una opción del evento.

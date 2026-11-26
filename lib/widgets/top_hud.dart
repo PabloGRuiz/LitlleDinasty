@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/life_stage.dart';
+import '../models/world_state.dart';
 import '../providers/life_provider.dart';
 import '../theme/medieval_theme.dart';
 
@@ -157,7 +158,8 @@ class TopHud extends ConsumerWidget {
                       const SizedBox(width: 4),
                       Flexible(
                         child: Text(
-                          hero.villageName,
+                          state.worldState.currentLocation
+                              .labelFor(hero.villageName),
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             fontSize: 11.5,

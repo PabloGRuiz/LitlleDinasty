@@ -28,6 +28,9 @@ class MedievalColors {
   static const Color plumEmpathy = Color(0xFF7A4E7A);
   static const Color plumEmpathyBg = Color(0xFFF2E8F2);
 
+  static const Color arcaneViolet = Color(0xFF6A4FB5);
+  static const Color arcaneVioletBg = Color(0xFFEDE8FA);
+
   static const Color copperCoin = Color(0xFFB86B35);
   static const Color silverCoin = Color(0xFF7B8894);
   static const Color goldCoin = Color(0xFFC99728);

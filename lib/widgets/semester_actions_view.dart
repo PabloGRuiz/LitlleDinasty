@@ -16,7 +16,11 @@ class SemesterActionsView extends ConsumerWidget {
     final state = ref.watch(lifeProvider);
     final notifier = ref.read(lifeProvider.notifier);
     final stage = state.hero.lifeStage;
-    final actions = SemesterActionsCatalog.forStage(stage);
+    final actions = SemesterActionsCatalog.forStage(
+      stage,
+      manaAwakened: state.hero.manaAwakened,
+      isEnrolledInSchool: state.familyState.isEnrolledInSchool,
+    );
     final available = state.hasSemesterActionAvailable;
 
     return Container(

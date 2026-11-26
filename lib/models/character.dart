@@ -19,6 +19,9 @@ class Protagonist {
     required this.fatherName,
     required this.motherName,
     required this.villageName,
+    this.manaAwakened = false,
+    this.primaryDevelopmentCompleted = false,
+    this.statCaps = const StatCaps.initial(),
   });
 
   final String name;
@@ -33,6 +36,9 @@ class Protagonist {
   final String fatherName;
   final String motherName;
   final String villageName;
+  final bool manaAwakened;
+  final bool primaryDevelopmentCompleted;
+  final StatCaps statCaps;
 
   String get fullName => '$name $surname';
 
@@ -52,6 +58,9 @@ class Protagonist {
     String? fatherName,
     String? motherName,
     String? villageName,
+    bool? manaAwakened,
+    bool? primaryDevelopmentCompleted,
+    StatCaps? statCaps,
   }) {
     return Protagonist(
       name: name ?? this.name,
@@ -66,6 +75,10 @@ class Protagonist {
       fatherName: fatherName ?? this.fatherName,
       motherName: motherName ?? this.motherName,
       villageName: villageName ?? this.villageName,
+      manaAwakened: manaAwakened ?? this.manaAwakened,
+      primaryDevelopmentCompleted:
+          primaryDevelopmentCompleted ?? this.primaryDevelopmentCompleted,
+      statCaps: statCaps ?? this.statCaps,
     );
   }
 
@@ -83,10 +96,14 @@ class Protagonist {
       'fatherName': fatherName,
       'motherName': motherName,
       'villageName': villageName,
+      'manaAwakened': manaAwakened,
+      'primaryDevelopmentCompleted': primaryDevelopmentCompleted,
+      'statCaps': statCaps.toJson(),
     };
   }
 
   factory Protagonist.fromJson(Map<String, dynamic> json) {
+    final capsJson = json['statCaps'] as Map<String, dynamic>?;
     return Protagonist(
       name: json['name'] as String? ?? 'Aldric',
       surname: json['surname'] as String? ?? 'del Valle',
@@ -104,6 +121,11 @@ class Protagonist {
       fatherName: json['fatherName'] as String? ?? 'Gareth',
       motherName: json['motherName'] as String? ?? 'Elara',
       villageName: json['villageName'] as String? ?? 'Vallebruma',
+      manaAwakened: json['manaAwakened'] as bool? ?? false,
+      primaryDevelopmentCompleted:
+          json['primaryDevelopmentCompleted'] as bool? ?? false,
+      statCaps:
+          capsJson != null ? StatCaps.fromJson(capsJson) : const StatCaps.initial(),
     );
   }
 }

@@ -1,9 +1,12 @@
 import 'character.dart';
 import 'currency.dart';
+import 'family_state.dart';
 import 'game_event.dart';
 import 'life_stage.dart';
 import 'profession.dart';
+import 'social_relation.dart';
 import 'stats.dart';
+import 'world_state.dart';
 
 /// Entrada en el diario cronológico del protagonista.
 class ChronicleEntry {
@@ -78,6 +81,16 @@ class GameState {
     this.completedQuests = 0,
     this.lastSemesterActionKey,
     this.lastQuestSemesterKey,
+    this.worldState = const WorldState(
+      currentLocation: WorldLocation.homeVillage,
+      route: StoryRoute.unwritten,
+      demonKingThreat: 8,
+      storyFlags: {},
+      completedStoryEventIds: {},
+      worldNews: [],
+    ),
+    this.familyState = const FamilyState(familySavingsCopper: 30000),
+    this.contacts = const [],
     this.activeEvent,
     this.wasPausedBeforeEvent = false,
     this.isGameOver = false,
@@ -85,9 +98,9 @@ class GameState {
   });
 
   factory GameState.initialCreation() {
-    return const GameState(
+    return GameState(
       needsCharacterCreation: true,
-      hero: Protagonist(
+      hero: const Protagonist(
         name: '',
         surname: 'del Valle',
         gender: Gender.male,
@@ -107,14 +120,16 @@ class GameState {
         motherName: 'Mirella',
         villageName: 'Vallebruma',
       ),
-      currency: RpgCurrency(0),
+      currency: const RpgCurrency(0),
       year: 1140,
       month: 1,
       isPaused: true,
       speedMultiplier: 1,
       monthsSinceLastEvent: 0,
-      seenEventIds: {},
-      chronicles: [],
+      seenEventIds: const {},
+      chronicles: const [],
+      worldState: WorldState.initial(),
+      familyState: FamilyState.initial(),
     );
   }
 
@@ -133,6 +148,9 @@ class GameState {
   final int completedQuests;
   final String? lastSemesterActionKey;
   final String? lastQuestSemesterKey;
+  final WorldState worldState;
+  final FamilyState familyState;
+  final List<SocialContact> contacts;
   final ActiveGameEvent? activeEvent;
   final bool wasPausedBeforeEvent;
   final bool isGameOver;
@@ -179,6 +197,9 @@ class GameState {
     int? completedQuests,
     String? lastSemesterActionKey,
     String? lastQuestSemesterKey,
+    WorldState? worldState,
+    FamilyState? familyState,
+    List<SocialContact>? contacts,
     ActiveGameEvent? activeEvent,
     bool clearActiveEvent = false,
     bool? wasPausedBeforeEvent,
@@ -204,6 +225,9 @@ class GameState {
       lastSemesterActionKey:
           lastSemesterActionKey ?? this.lastSemesterActionKey,
       lastQuestSemesterKey: lastQuestSemesterKey ?? this.lastQuestSemesterKey,
+      worldState: worldState ?? this.worldState,
+      familyState: familyState ?? this.familyState,
+      contacts: contacts ?? this.contacts,
       activeEvent: clearActiveEvent ? null : (activeEvent ?? this.activeEvent),
       wasPausedBeforeEvent: wasPausedBeforeEvent ?? this.wasPausedBeforeEvent,
       isGameOver: isGameOver ?? this.isGameOver,
@@ -229,6 +253,9 @@ class GameState {
       'completedQuests': completedQuests,
       'lastSemesterActionKey': lastSemesterActionKey,
       'lastQuestSemesterKey': lastQuestSemesterKey,
+      'worldState': worldState.toJson(),
+      'familyState': familyState.toJson(),
+      'contacts': contacts.map((c) => c.toJson()).toList(),
       'isGameOver': isGameOver,
       'causeOfDeath': causeOfDeath,
     };
@@ -237,6 +264,9 @@ class GameState {
   factory GameState.fromJson(Map<String, dynamic> json) {
     final seenRaw = json['seenEventIds'] as List<dynamic>? ?? const [];
     final chroniclesRaw = json['chronicles'] as List<dynamic>? ?? const [];
+    final worldJson = json['worldState'] as Map<String, dynamic>?;
+    final familyJson = json['familyState'] as Map<String, dynamic>?;
+    final contactsRaw = json['contacts'] as List<dynamic>? ?? const [];
 
     return GameState(
       needsCharacterCreation: json['needsCharacterCreation'] as bool? ?? true,
@@ -259,6 +289,15 @@ class GameState {
       completedQuests: (json['completedQuests'] as num?)?.toInt() ?? 0,
       lastSemesterActionKey: json['lastSemesterActionKey'] as String?,
       lastQuestSemesterKey: json['lastQuestSemesterKey'] as String?,
+      worldState: worldJson != null
+          ? WorldState.fromJson(worldJson)
+          : WorldState.initial(),
+      familyState: familyJson != null
+          ? FamilyState.fromJson(familyJson)
+          : FamilyState.initial(),
+      contacts: contactsRaw
+          .map((e) => SocialContact.fromJson(e as Map<String, dynamic>))
+          .toList(),
       isGameOver: json['isGameOver'] as bool? ?? false,
       causeOfDeath: json['causeOfDeath'] as String?,
     );

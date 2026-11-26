@@ -17,7 +17,7 @@ Future<void> showEventModal(BuildContext context, ActiveGameEvent event) {
   );
 }
 
-/// Modal estilo pergamino con opciones, probabilidad de éxito (0..100%) e impactos.
+/// Modal estilo pergamino para eventos aleatorios (0..100%) e hitos de destino.
 class EventModal extends ConsumerWidget {
   const EventModal({super.key, required this.event});
 
@@ -28,6 +28,12 @@ class EventModal extends ConsumerWidget {
     final state = ref.watch(lifeProvider);
     final notifier = ref.read(lifeProvider.notifier);
     final stats = state.hero.stats;
+    final isStory = event.isStoryEvent;
+
+    final headerBg =
+        isStory ? MedievalColors.arcaneVioletBg : MedievalColors.amberOchreBg;
+    final headerAccent =
+        isStory ? MedievalColors.arcaneViolet : MedievalColors.amberOchre;
 
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
@@ -36,12 +42,12 @@ class EventModal extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Cabecera de etapa y título
+            // Cabecera de etapa / hito de destino y título
             Container(
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
               decoration: BoxDecoration(
-                color: MedievalColors.amberOchreBg,
+                color: headerBg,
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(16),
                 ),
@@ -59,14 +65,14 @@ class EventModal extends ConsumerWidget {
                       color: MedievalColors.parchmentCard,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: MedievalColors.amberOchre,
+                        color: headerAccent,
                         width: 1.4,
                       ),
                     ),
                     child: Icon(
-                      event.stage.icon,
+                      isStory ? Icons.auto_awesome_rounded : event.stage.icon,
                       size: 20,
-                      color: MedievalColors.amberOchre,
+                      color: headerAccent,
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -75,12 +81,14 @@ class EventModal extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${event.stage.label.toUpperCase()} · ${state.hero.age} AÑOS',
-                          style: const TextStyle(
+                          isStory
+                              ? 'HITO DEL DESTINO · ${state.hero.age} AÑOS'
+                              : '${event.stage.label.toUpperCase()} · ${state.hero.age} AÑOS',
+                          style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.w800,
                             letterSpacing: 0.7,
-                            color: MedievalColors.amberOchre,
+                            color: headerAccent,
                           ),
                         ),
                         const SizedBox(height: 2),
@@ -116,21 +124,38 @@ class EventModal extends ConsumerWidget {
                     const SizedBox(height: 16),
                     ...event.choices.map((choice) {
                       final check = choice.statCheck;
-                      final chance =
-                          check != null ? check.successChanceFor(stats) : 100;
+                      final chance = check?.successChanceFor(stats);
                       final canAfford = state.currency.totalCopper >=
                           choice.minCopperRequired;
 
-                      final chanceColor = chance >= 70
-                          ? MedievalColors.forestGreen
-                          : (chance >= 40
-                              ? MedievalColors.amberOchre
-                              : MedievalColors.crimsonSeal);
-                      final chanceBg = chance >= 70
-                          ? MedievalColors.forestGreenBg
-                          : (chance >= 40
-                              ? MedievalColors.amberOchreBg
-                              : MedievalColors.crimsonSealBg);
+                      final Color badgeColor;
+                      final Color badgeBg;
+                      final String? badgeLabel;
+                      if (chance != null) {
+                        badgeLabel = 'Éxito: $chance%';
+                        badgeColor = chance >= 70
+                            ? MedievalColors.forestGreen
+                            : (chance >= 40
+                                ? MedievalColors.amberOchre
+                                : MedievalColors.crimsonSeal);
+                        badgeBg = chance >= 70
+                            ? MedievalColors.forestGreenBg
+                            : (chance >= 40
+                                ? MedievalColors.amberOchreBg
+                                : MedievalColors.crimsonSealBg);
+                      } else if (choice.isDestinyChoice) {
+                        badgeLabel = 'Destino';
+                        badgeColor = MedievalColors.arcaneViolet;
+                        badgeBg = MedievalColors.arcaneVioletBg;
+                      } else {
+                        badgeLabel = null;
+                        badgeColor = MedievalColors.forestGreen;
+                        badgeBg = MedievalColors.forestGreenBg;
+                      }
+
+                      final hasStatOrCoinChange =
+                          !choice.successOutcome.statDelta.isEmpty ||
+                              choice.successOutcome.copperDelta != 0;
 
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),
@@ -180,29 +205,32 @@ class EventModal extends ConsumerWidget {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(width: 8),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 7,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: chanceBg,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                          color: chanceColor
-                                              .withValues(alpha: 0.6),
+                                    if (badgeLabel != null) ...[
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 7,
+                                          vertical: 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: badgeBg,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          border: Border.all(
+                                            color: badgeColor
+                                                .withValues(alpha: 0.6),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          badgeLabel,
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w800,
+                                            color: badgeColor,
+                                          ),
                                         ),
                                       ),
-                                      child: Text(
-                                        'Éxito: $chance%',
-                                        style: TextStyle(
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w800,
-                                          color: chanceColor,
-                                        ),
-                                      ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                                 if (check != null) ...[
@@ -227,15 +255,31 @@ class EventModal extends ConsumerWidget {
                                     ),
                                   ),
                                 ],
-                                const SizedBox(height: 5),
-                                Text(
-                                  'Éxito: ${choice.successOutcome.formatPreview()}',
-                                  style: const TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
-                                    color: MedievalColors.forestGreen,
+                                if (choice.destinyPreview != null) ...[
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    choice.destinyPreview!,
+                                    style: const TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700,
+                                      color: MedievalColors.arcaneViolet,
+                                    ),
                                   ),
-                                ),
+                                ],
+                                if (hasStatOrCoinChange ||
+                                    !choice.isDestinyChoice) ...[
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    check != null
+                                        ? 'Éxito: ${choice.successOutcome.formatPreview()}'
+                                        : choice.successOutcome.formatPreview(),
+                                    style: const TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                      color: MedievalColors.forestGreen,
+                                    ),
+                                  ),
+                                ],
                                 if (choice.failureOutcome != null)
                                   Text(
                                     'Fallo: ${choice.failureOutcome!.formatPreview()}',
@@ -266,16 +310,14 @@ class EventModal extends ConsumerWidget {
     EventResolutionResult result,
   ) {
     if (messenger == null || result.description.isEmpty) return;
-    final prefix = result.wasCheck
-        ? (result.succeeded
-            ? '¡Éxito! (${result.roll} ≤ ${result.chance}%)'
-            : 'Fallo (${result.roll} > ${result.chance}%)')
-        : 'Decisión tomada';
+    final text = result.wasCheck
+        ? '${result.succeeded ? '¡Éxito! (${result.roll} ≤ ${result.chance}%)' : 'Fallo (${result.roll} > ${result.chance}%)'} · ${result.description}'
+        : result.description;
 
     messenger.hideCurrentSnackBar();
     messenger.showSnackBar(
       SnackBar(
-        content: Text('$prefix · ${result.description}'),
+        content: Text(text),
         behavior: SnackBarBehavior.floating,
         duration: const Duration(seconds: 4),
       ),

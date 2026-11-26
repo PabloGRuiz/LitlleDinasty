@@ -3,11 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/events_catalog.dart';
 import '../models/character.dart';
+import '../models/currency.dart';
 import '../models/life_stage.dart';
 import '../models/profession.dart';
 import '../models/stats.dart';
+import '../models/world_state.dart';
 import '../providers/life_provider.dart';
 import '../theme/medieval_theme.dart';
+import 'world_dialog.dart';
 
 /// Vista principal de la ficha del protagonista, su etapa actual y sus 6 atributos.
 class HeroLifeView extends ConsumerWidget {
@@ -261,17 +264,139 @@ class HeroLifeView extends ConsumerWidget {
             const SizedBox(height: 12),
           ],
 
-          // Panel con las 6 estadísticas (0-100)
+          // Tarjeta de Mundo Vivo, Ruta y Viajes
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        state.worldState.route.icon,
+                        size: 18,
+                        color: MedievalColors.arcaneViolet,
+                      ),
+                      const SizedBox(width: 7),
+                      Expanded(
+                        child: Text(
+                          '${state.worldState.era.label} · ${state.worldState.route.label}',
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w800,
+                            color: MedievalColors.inkDark,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      OutlinedButton.icon(
+                        key: const Key('open_world_button'),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 6,
+                          ),
+                          visualDensity: VisualDensity.compact,
+                        ),
+                        onPressed: () => showWorldDialog(context),
+                        icon: const Icon(Icons.public_rounded, size: 15),
+                        label: const Text(
+                          'Mundo y Viajes',
+                          style: TextStyle(fontSize: 11.5),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Row(
+                    children: [
+                      const Text(
+                        'Amenaza del Rey Demonio',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: MedievalColors.inkMuted,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: LinearProgressIndicator(
+                            value:
+                                (state.worldState.demonKingThreat / 100)
+                                    .clamp(0.0, 1.0),
+                            minHeight: 6,
+                            backgroundColor: MedievalColors.borderWood
+                                .withValues(alpha: 0.3),
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                              MedievalColors.crimsonSeal,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        '${state.worldState.demonKingThreat}%',
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          color: MedievalColors.crimsonSeal,
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (state.worldState.worldNews.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      'Noticia: ${state.worldState.worldNews.first.headline}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontStyle: FontStyle.italic,
+                        color: MedievalColors.inkMuted,
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 12),
+
+          // Tarjeta de Economía Familiar (hasta los 15 años)
+          if (!state.familyState.isFinanciallyIndependent) ...[
+            _FamilyEconomyCard(
+              age: hero.age,
+              savingsText: state.familyState.savingsCurrency.formatCompact(),
+              monthlyNetCopper: state.familyState.monthlyNetCopper,
+              isEnrolledInSchool: state.familyState.isEnrolledInSchool,
+              isChildWorker: state.familyState.isChildWorker,
+              siblingsCount: state.familyState.dependentSiblingsCount,
+              siblingNames:
+                  state.familyState.siblings.map((s) => '${s.name} (${s.age}a)').toList(),
+              canAct: !state.isGameOver && state.activeEvent == null,
+              onToggleSchool: notifier.toggleSchoolEnrollment,
+              onToggleWork: notifier.toggleChildWork,
+            ),
+            const SizedBox(height: 12),
+          ],
+
+          // Panel con estadísticas (6 base -> +Maná a los 6 -> +Fortaleza, Poder Mágico, Conocimientos a los 10)
           Card(
             child: Padding(
               padding: const EdgeInsets.all(14),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'Atributos del Alma y Cuerpo',
                           overflow: TextOverflow.ellipsis,
@@ -282,10 +407,12 @@ class HeroLifeView extends ConsumerWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
-                        '0 – 100',
-                        style: TextStyle(
+                        hero.primaryDevelopmentCompleted
+                            ? 'Límites exponenciales'
+                            : '0 – 100',
+                        style: const TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           color: MedievalColors.inkMuted,
@@ -294,8 +421,18 @@ class HeroLifeView extends ConsumerWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  ...StatType.values.map((statType) {
+                  ...CharacterStats.visibleStats(
+                    manaAwakened: hero.manaAwakened,
+                    primaryDevelopmentCompleted:
+                        hero.primaryDevelopmentCompleted,
+                  ).map((statType) {
                     final value = hero.stats[statType];
+                    final cap = hero.statCaps[statType];
+                    final ratio = cap > 0 ? (value / cap).clamp(0.0, 1.0) : 0.0;
+                    final valueText = hero.primaryDevelopmentCompleted
+                        ? '${formatStatNumber(value)} / ${formatStatNumber(cap)}'
+                        : '$value';
+
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Column(
@@ -319,9 +456,9 @@ class HeroLifeView extends ConsumerWidget {
                                 ),
                               ),
                               Text(
-                                '$value',
+                                valueText,
                                 style: TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 12.5,
                                   fontWeight: FontWeight.w800,
                                   color: statType.color,
                                 ),
@@ -332,7 +469,7 @@ class HeroLifeView extends ConsumerWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(6),
                             child: LinearProgressIndicator(
-                              value: (value / 100).clamp(0.0, 1.0),
+                              value: ratio,
                               minHeight: 8,
                               backgroundColor: MedievalColors.borderWood
                                   .withValues(alpha: 0.3),
@@ -344,6 +481,66 @@ class HeroLifeView extends ConsumerWidget {
                       ),
                     );
                   }),
+                  if (!hero.manaAwakened)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: MedievalColors.arcaneVioletBg,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.auto_fix_high_rounded,
+                            size: 15,
+                            color: MedievalColors.arcaneViolet,
+                          ),
+                          SizedBox(width: 6),
+                          Expanded(
+                            child: Text(
+                              'Afinidad mágica (Maná): será examinada por el sacerdote al cumplir 6 años.',
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                                color: MedievalColors.arcaneViolet,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (!hero.primaryDevelopmentCompleted) ...[
+                    if (!hero.manaAwakened) const SizedBox(height: 6),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: MedievalColors.amberOchreBg,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.bolt_rounded,
+                            size: 15,
+                            color: MedievalColors.amberOchre,
+                          ),
+                          SizedBox(width: 6),
+                          Expanded(
+                            child: Text(
+                              'Desarrollo primario: a los 10 años se fijarán tus límites exponenciales y nacerán Fortaleza, Poder Mágico y Conocimientos.',
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                                color: MedievalColors.amberOchre,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -503,5 +700,174 @@ class MedievalAvatarPainter extends CustomPainter {
     return oldDelegate.hero.age != hero.age ||
         oldDelegate.hero.gender != hero.gender ||
         oldDelegate.hero.avatarSeed != hero.avatarSeed;
+  }
+}
+
+class _FamilyEconomyCard extends StatelessWidget {
+  const _FamilyEconomyCard({
+    required this.age,
+    required this.savingsText,
+    required this.monthlyNetCopper,
+    required this.isEnrolledInSchool,
+    required this.isChildWorker,
+    required this.siblingsCount,
+    required this.siblingNames,
+    required this.canAct,
+    required this.onToggleSchool,
+    required this.onToggleWork,
+  });
+
+  final int age;
+  final String savingsText;
+  final int monthlyNetCopper;
+  final bool isEnrolledInSchool;
+  final bool isChildWorker;
+  final int siblingsCount;
+  final List<String> siblingNames;
+  final bool canAct;
+  final VoidCallback onToggleSchool;
+  final VoidCallback onToggleWork;
+
+  @override
+  Widget build(BuildContext context) {
+    final isPositive = monthlyNetCopper >= 0;
+    final netColor = isPositive
+        ? MedievalColors.forestGreen
+        : MedievalColors.crimsonSeal;
+
+    return Card(
+      key: const Key('family_economy_card'),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(
+                  Icons.cottage_outlined,
+                  size: 18,
+                  color: MedievalColors.amberOchre,
+                ),
+                const SizedBox(width: 7),
+                const Expanded(
+                  child: Text(
+                    'Economía Familiar',
+                    style: TextStyle(
+                      fontSize: 13.5,
+                      fontWeight: FontWeight.w800,
+                      color: MedievalColors.inkDark,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Ahorros: $savingsText',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w800,
+                    color: MedievalColors.goldCoin,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Padres +20P · Mantención -5P'
+                    '${isEnrolledInSchool ? ' · Escuela -15P' : ''}'
+                    '${siblingsCount > 0 ? ' · Hermanos -${siblingsCount * 5}P' : ''}'
+                    '${isChildWorker ? ' · Trabajo +8P' : ''}',
+                    style: const TextStyle(
+                      fontSize: 11,
+                      color: MedievalColors.inkMuted,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 7,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isPositive
+                        ? MedievalColors.forestGreenBg
+                        : MedievalColors.crimsonSealBg,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    '${RpgCurrency.formatDelta(monthlyNetCopper)}/mes',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w800,
+                      color: netColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (siblingNames.isNotEmpty) ...[
+              const SizedBox(height: 5),
+              Text(
+                'Hermanos: ${siblingNames.join(', ')}',
+                style: const TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: MedievalColors.inkDark,
+                ),
+              ),
+            ],
+            if (age >= 7) ...[
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 6,
+                children: [
+                  OutlinedButton.icon(
+                    key: const Key('toggle_school_button'),
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    onPressed: canAct ? onToggleSchool : null,
+                    icon: const Icon(Icons.school_outlined, size: 15),
+                    label: Text(
+                      isEnrolledInSchool
+                          ? 'Dejar Escuela'
+                          : 'Ir a Escuela (15P/m)',
+                      style: const TextStyle(fontSize: 11.5),
+                    ),
+                  ),
+                  if (age >= 8)
+                    OutlinedButton.icon(
+                      key: const Key('toggle_child_work_button'),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 6,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      onPressed: canAct ? onToggleWork : null,
+                      icon: const Icon(Icons.handyman_outlined, size: 15),
+                      label: Text(
+                        isChildWorker
+                            ? 'Dejar Trabajo'
+                            : 'Trabajar (+8P/m)',
+                        style: const TextStyle(fontSize: 11.5),
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
   }
 }

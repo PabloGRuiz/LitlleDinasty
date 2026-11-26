@@ -14,6 +14,8 @@ class SemesterAction {
     required this.accentColor,
     required this.statDelta,
     this.copperDelta = 0,
+    this.requiresManaAwakened = false,
+    this.requiresEnrolledInSchool = false,
     required this.allowedStages,
   });
 
@@ -24,6 +26,8 @@ class SemesterAction {
   final Color accentColor;
   final StatDelta statDelta;
   final int copperDelta;
+  final bool requiresManaAwakened;
+  final bool requiresEnrolledInSchool;
   final List<LifeStage> allowedStages;
 }
 
@@ -188,7 +192,7 @@ class SemesterActionsCatalog {
           'Sesiones exigentes de armas y combate cuerpo a cuerpo.',
       icon: Icons.sports_martial_arts_rounded,
       accentColor: MedievalColors.crimsonSeal,
-      statDelta: StatDelta(combatSkill: 6, strength: 3, mood: -1),
+      statDelta: StatDelta(combatSkill: 6, strength: 3, fortitude: 5, mood: -1),
       allowedStages: [LifeStage.youth, LifeStage.adulthood],
     ),
     SemesterAction(
@@ -198,7 +202,8 @@ class SemesterActionsCatalog {
           'Profundizas en alquimia básica, cuentas y leyes del reino.',
       icon: Icons.menu_book_rounded,
       accentColor: MedievalColors.royalBlue,
-      statDelta: StatDelta(intellect: 6, emotionalIntelligence: 2),
+      statDelta:
+          StatDelta(intellect: 6, knowledge: 10, emotionalIntelligence: 2),
       allowedStages: [LifeStage.youth, LifeStage.adulthood],
     ),
     SemesterAction(
@@ -208,7 +213,7 @@ class SemesterActionsCatalog {
           'Rutinas de fuerza y marcha por la montaña para endurecer el cuerpo.',
       icon: Icons.fitness_center_rounded,
       accentColor: MedievalColors.amberOchre,
-      statDelta: StatDelta(strength: 6, health: 3),
+      statDelta: StatDelta(strength: 6, fortitude: 7, health: 3),
       allowedStages: [LifeStage.youth, LifeStage.adulthood],
     ),
     SemesterAction(
@@ -296,10 +301,49 @@ class SemesterActionsCatalog {
       statDelta: StatDelta(health: 8, mood: 7),
       allowedStages: [LifeStage.oldAge],
     ),
+    SemesterAction(
+      id: 'sem_school_formal_study',
+      title: 'Estudio Formal en la Escuela',
+      description:
+          'Asistes con disciplina a tus lecciones de lectura, aritmética, historia y ciencias.',
+      icon: Icons.school_rounded,
+      accentColor: MedievalColors.royalBlue,
+      statDelta: StatDelta(intellect: 8, knowledge: 12),
+      requiresEnrolledInSchool: true,
+      allowedStages: [LifeStage.childhood, LifeStage.adolescence],
+    ),
+    SemesterAction(
+      id: 'sem_channel_mana',
+      title: 'Meditar y Canalizar Maná',
+      description:
+          'Refinas tu reserva mágica interna tras haber despertado el maná.',
+      icon: Icons.auto_fix_high_rounded,
+      accentColor: MedievalColors.arcaneViolet,
+      statDelta: StatDelta(mana: 5, magicPower: 6, intellect: 2),
+      requiresManaAwakened: true,
+      allowedStages: [
+        LifeStage.childhood,
+        LifeStage.adolescence,
+        LifeStage.youth,
+        LifeStage.adulthood,
+        LifeStage.oldAge,
+      ],
+    ),
   ];
 
-  static List<SemesterAction> forStage(LifeStage stage) {
-    return all.where((a) => a.allowedStages.contains(stage)).toList();
+  static List<SemesterAction> forStage(
+    LifeStage stage, {
+    bool manaAwakened = false,
+    bool isEnrolledInSchool = false,
+  }) {
+    return all
+        .where(
+          (a) =>
+              a.allowedStages.contains(stage) &&
+              (!a.requiresManaAwakened || manaAwakened) &&
+              (!a.requiresEnrolledInSchool || isEnrolledInSchool),
+        )
+        .toList();
   }
 }
 

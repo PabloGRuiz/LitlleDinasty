@@ -29,13 +29,11 @@ class EventsCatalog {
             requiredScore: 22,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Aceptas tu nuevo destino con sorprendente madurez para un bebé.',
+            description: 'Aceptas tu nuevo destino con sorprendente madurez para un bebé.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 5),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El desconcierto te agobia un poco, aunque el calor del hogar te calma.',
+            description: 'El desconcierto te agobia un poco, aunque el calor del hogar te calma.',
             statDelta: StatDelta(emotionalIntelligence: 2, mood: -4),
           ),
         ),
@@ -43,8 +41,7 @@ class EventsCatalog {
           id: 'observe_surroundings',
           label: 'Escuchar con atención cada palabra de tus padres',
           successOutcome: EventOutcome(
-            description:
-                'Empiezas a descifrar el dialecto de la aldea desde muy temprana edad.',
+            description: 'Empiezas a descifrar el dialecto de la aldea desde muy temprana edad.',
             statDelta: StatDelta(intellect: 5, emotionalIntelligence: 2),
           ),
         ),
@@ -67,8 +64,7 @@ class EventsCatalog {
             statDelta: StatDelta(strength: 5, health: 3, mood: 6),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Tropezaste con una piedrecilla, pero aprendiste a levantarte solo.',
+            description: 'Tropezaste con una piedrecilla, pero aprendiste a levantarte solo.',
             statDelta: StatDelta(strength: 2, health: -3, mood: -2),
           ),
         ),
@@ -76,8 +72,7 @@ class EventsCatalog {
           id: 'careful_balance',
           label: 'Avanzar paso a paso con cautela',
           successOutcome: EventOutcome(
-            description:
-                'Caminas firme y observador bajo la mirada orgullosa de tus padres.',
+            description: 'Caminas firme y observador bajo la mirada orgullosa de tus padres.',
             statDelta: StatDelta(strength: 3, emotionalIntelligence: 3),
           ),
         ),
@@ -128,13 +123,11 @@ class EventsCatalog {
           label: 'Construir una muralla compleja',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 26),
           successOutcome: EventOutcome(
-            description:
-                'Alineas contrapesos sorprendentes; tus padres murmuran que eres prodigioso.',
+            description: 'Alineas contrapesos sorprendentes; tus padres murmuran que eres prodigioso.',
             statDelta: StatDelta(intellect: 6, mood: 5),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'La torre se derrumba una y otra vez, pero estimula tu ingenio.',
+            description: 'La torre se derrumba una y otra vez, pero estimula tu ingenio.',
             statDelta: StatDelta(intellect: 3, mood: -2),
           ),
         ),
@@ -153,8 +146,7 @@ class EventsCatalog {
       id: 'early_watchdog',
       stage: LifeStage.earlyChildhood,
       title: 'El Perro Guardián del Patio',
-      narrativeBuilder: (_, _) =>
-          'Un mastín viejo y peludo de la granja vecina se acerca olfateando la puerta. Es tan grande como un ternero.',
+      narrativeBuilder: (_, _) => 'Un mastín viejo y peludo de la granja vecina se acerca olfateando la puerta. Es tan grande como un ternero.',
       choices: const [
         EventChoice(
           id: 'befriend_hound',
@@ -164,8 +156,7 @@ class EventsCatalog {
             requiredScore: 25,
           ),
           successOutcome: EventOutcome(
-            description:
-                'El perro mueve la cola y se tumba a protegerte; encuentras una moneda bajo su pata.',
+            description: 'El perro mueve la cola y se tumba a protegerte; encuentras una moneda bajo su pata.',
             statDelta: StatDelta(emotionalIntelligence: 5, mood: 6),
             copperDelta: 8,
           ),
@@ -179,8 +170,7 @@ class EventsCatalog {
           id: 'brandish_spoon',
           label: 'Agitar una cuchara de madera como espada',
           successOutcome: EventOutcome(
-            description:
-                'El animal retrocede intrigado; despiertas un pequeño instinto marcial.',
+            description: 'El animal retrocede intrigado; despiertas un pequeño instinto marcial.',
             statDelta: StatDelta(combatSkill: 4, strength: 2),
           ),
         ),
@@ -202,14 +192,12 @@ class EventsCatalog {
           label: 'Aceptar un duelo amistoso',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 15),
           successOutcome: EventOutcome(
-            description:
-                'Usas reflejos de otra vida para desarmar a tu rival entre aplausos.',
+            description: 'Usas reflejos de otra vida para desarmar a tu rival entre aplausos.',
             statDelta: StatDelta(combatSkill: 7, strength: 4, mood: 6),
             copperDelta: 12,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Recibes varios golpes en los nudillos, pero tu postura mejora.',
+            description: 'Recibes varios golpes en los nudillos, pero tu postura mejora.',
             statDelta: StatDelta(combatSkill: 3, health: -5, mood: -3),
           ),
         ),
@@ -235,8 +223,7 @@ class EventsCatalog {
           id: 'return_pouch',
           label: 'Devolver la bolsa íntegra al molinero',
           successOutcome: EventOutcome(
-            description:
-                'Conmovido por tu honradez, te recompensa con monedas de cobre y pan dulce.',
+            description: 'Conmovido por tu honradez, te recompensa con monedas de cobre y pan dulce.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 6),
             copperDelta: 25,
           ),
@@ -249,8 +236,7 @@ class EventsCatalog {
             requiredScore: 30,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Nadie nota nada, aunque la culpa pesa ligeramente en tu ánimo.',
+            description: 'Nadie nota nada, aunque la culpa pesa ligeramente en tu ánimo.',
             statDelta: StatDelta(mood: -5),
             copperDelta: 65,
           ),
@@ -274,14 +260,12 @@ class EventsCatalog {
           label: 'Estudiar su herbario manuscrito',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 30),
           successOutcome: EventOutcome(
-            description:
-                'Clasificas manzanilla, valeriana y belladona sin un solo error.',
+            description: 'Clasificas manzanilla, valeriana y belladona sin un solo error.',
             statDelta: StatDelta(intellect: 7, health: 4),
             copperDelta: 35,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Confundes dos tallos amargos y te pasas la tarde limpiando morteros.',
+            description: 'Confundes dos tallos amargos y te pasas la tarde limpiando morteros.',
             statDelta: StatDelta(intellect: 2, mood: -4),
             copperDelta: 10,
           ),
@@ -290,8 +274,7 @@ class EventsCatalog {
           id: 'carry_baskets',
           label: 'Ayudar cargando cestos de leña y agua',
           successOutcome: EventOutcome(
-            description:
-                'El trabajo físico curte tus hombros y te ganas una paga modesta.',
+            description: 'El trabajo físico curte tus hombros y te ganas una paga modesta.',
             statDelta: StatDelta(strength: 6, health: 3),
             copperDelta: 20,
           ),
@@ -310,14 +293,16 @@ class EventsCatalog {
           label: 'Cruzar el vado sujeto a una soga',
           statCheck: StatCheck(stat: StatType.strength, requiredScore: 22),
           successOutcome: EventOutcome(
-            description:
-                'Sujetas al animal contra tu pecho y regresas a la orilla como un pequeño héroe.',
-            statDelta: StatDelta(strength: 5, mood: 7, emotionalIntelligence: 3),
+            description: 'Sujetas al animal contra tu pecho y regresas a la orilla como un pequeño héroe.',
+            statDelta: StatDelta(
+              strength: 5,
+              mood: 7,
+              emotionalIntelligence: 3,
+            ),
             copperDelta: 30,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'La corriente te arrastra unos metros antes de que te saquen tiritando.',
+            description: 'La corriente te arrastra unos metros antes de que te saquen tiritando.',
             statDelta: StatDelta(health: -10, mood: -6, strength: 2),
           ),
         ),
@@ -326,8 +311,7 @@ class EventsCatalog {
           label: 'Improvisar un puente con tablones y piedras',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 32),
           successOutcome: EventOutcome(
-            description:
-                'Apoyas una viga larga en dos rocas; el cordero cruza sano y salvo.',
+            description: 'Apoyas una viga larga en dos rocas; el cordero cruza sano y salvo.',
             statDelta: StatDelta(intellect: 6, mood: 5),
             copperDelta: 30,
           ),
@@ -351,13 +335,11 @@ class EventsCatalog {
           label: 'Plantarle cara con puños en alto',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 18),
           successOutcome: EventOutcome(
-            description:
-                'Con un rápido barrido lo haces sentar en el barro; ya no molesta a nadie.',
+            description: 'Con un rápido barrido lo haces sentar en el barro; ya no molesta a nadie.',
             statDelta: StatDelta(combatSkill: 6, strength: 4, mood: 6),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Te derriba de un empujón, dejándote moretones pero más temple.',
+            description: 'Te derriba de un empujón, dejándote moretones pero más temple.',
             statDelta: StatDelta(health: -8, combatSkill: 3, mood: -5),
           ),
         ),
@@ -369,13 +351,11 @@ class EventsCatalog {
             requiredScore: 32,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Descubres que temía llegar tarde a casa; te lo ganas como aliado.',
+            description: 'Descubres que temía llegar tarde a casa; te lo ganas como aliado.',
             statDelta: StatDelta(emotionalIntelligence: 7, mood: 5),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Se burla de tus palabras y te obliga a rodear por el otro sendero.',
+            description: 'Se burla de tus palabras y te obliga a rodear por el otro sendero.',
             statDelta: StatDelta(mood: -5, emotionalIntelligence: 2),
           ),
         ),
@@ -397,14 +377,12 @@ class EventsCatalog {
           label: 'Vigilar el linde con una lanza de caza',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 30),
           successOutcome: EventOutcome(
-            description:
-                'Ahuyentas a un lobo explorador con un golpe certero y obtienes su piel.',
+            description: 'Ahuyentas a un lobo explorador con un golpe certero y obtienes su piel.',
             statDelta: StatDelta(combatSkill: 8, strength: 4, mood: 5),
             copperDelta: 90,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Un zarpazo roza tu brazo antes de que los perros de la aldea acudan.',
+            description: 'Un zarpazo roza tu brazo antes de que los perros de la aldea acudan.',
             statDelta: StatDelta(health: -12, combatSkill: 4, mood: -4),
           ),
         ),
@@ -432,8 +410,7 @@ class EventsCatalog {
           label: 'Pagar 50C por lecciones privadas nocturnas',
           minCopperRequired: 50,
           successOutcome: EventOutcome(
-            description:
-                'Tu memoria adulta acelera el aprendizaje y dominas la pluma en días.',
+            description: 'Tu memoria adulta acelera el aprendizaje y dominas la pluma en días.',
             statDelta: StatDelta(intellect: 10, emotionalIntelligence: 3),
             copperDelta: -50,
           ),
@@ -443,14 +420,12 @@ class EventsCatalog {
           label: 'Debatir con él sobre historia y cálculo',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 38),
           successOutcome: EventOutcome(
-            description:
-                'Impresionado por tu agudeza, te regala un códice y te paga por copiar cartas.',
+            description: 'Impresionado por tu agudeza, te regala un códice y te paga por copiar cartas.',
             statDelta: StatDelta(intellect: 7, mood: 6),
             copperDelta: 80,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Te corrige con severidad delante de los parroquianos, pero aprendes.',
+            description: 'Te corrige con severidad delante de los parroquianos, pero aprendes.',
             statDelta: StatDelta(intellect: 3, mood: -5),
           ),
         ),
@@ -468,14 +443,12 @@ class EventsCatalog {
           label: 'Competir en la lucha del círculo',
           statCheck: StatCheck(stat: StatType.strength, requiredScore: 34),
           successOutcome: EventOutcome(
-            description:
-                'Derribas a los finalistas y alzas la bolsa de premio de plata.',
+            description: 'Derribas a los finalistas y alzas la bolsa de premio de plata.',
             statDelta: StatDelta(strength: 7, combatSkill: 5, mood: 8),
             copperDelta: 150,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Quedas en tercer lugar tras un combate duro que deja dolor muscular.',
+            description: 'Quedas en tercer lugar tras un combate duro que deja dolor muscular.',
             statDelta: StatDelta(strength: 4, health: -6, mood: -2),
             copperDelta: 40,
           ),
@@ -484,8 +457,7 @@ class EventsCatalog {
           id: 'rally_crowd',
           label: 'Animar a los participantes y ayudar en la organización',
           successOutcome: EventOutcome(
-            description:
-                'Tu carisma hace brillar la fiesta y recibes un jornal del concejo.',
+            description: 'Tu carisma hace brillar la fiesta y recibes un jornal del concejo.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 6),
             copperDelta: 60,
           ),
@@ -506,7 +478,11 @@ class EventsCatalog {
           successOutcome: EventOutcome(
             description:
                 'Frenas el contagio usando conocimientos de tu vida anterior.',
-            statDelta: StatDelta(intellect: 6, health: 5, emotionalIntelligence: 5),
+            statDelta: StatDelta(
+              intellect: 6,
+              health: 5,
+              emotionalIntelligence: 5,
+            ),
             copperDelta: 120,
           ),
           failureOutcome: EventOutcome(
@@ -536,20 +512,15 @@ class EventsCatalog {
       id: 'adol_nostalgia',
       stage: LifeStage.adolescence,
       title: 'Nostalgia de Otro Mundo',
-      narrativeBuilder: (_, _) =>
-          'Bajo la lluvia nocturna, la dureza de la vida medieval te hace añorar las comodidades perdidas de tu antigua existencia.',
+      narrativeBuilder: (_, _) => 'Bajo la lluvia nocturna, la dureza de la vida medieval te hace añorar las comodidades perdidas de tu antigua existencia.',
       choices: const [
         EventChoice(
           id: 'embrace_new_life',
           label: 'Transformar la nostalgia en propósito',
           statCheck: StatCheck(stat: StatType.mood, requiredScore: 55),
           successOutcome: EventOutcome(
-            description:
-                'Aceptas este mundo como tuyo y sientes una determinación renovada.',
-            statDelta: StatDelta(
-              mood: 10,
-              emotionalIntelligence: 6,
-            ),
+            description: 'Aceptas este mundo como tuyo y sientes una determinación renovada.',
+            statDelta: StatDelta(mood: 10, emotionalIntelligence: 6),
           ),
           failureOutcome: EventOutcome(
             description:
@@ -584,14 +555,12 @@ class EventsCatalog {
           label: 'Desenvainar el arma y cargar contra el líder',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 48),
           successOutcome: EventOutcome(
-            description:
-                'Desarmas al cabecilla y los demás huyen dejando parte de su botín.',
+            description: 'Desarmas al cabecilla y los demás huyen dejando parte de su botín.',
             statDelta: StatDelta(combatSkill: 9, strength: 4, mood: 6),
             copperDelta: 350, // 3P 50C
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Recibes una herida en el costado y debes entregar parte de la bolsa.',
+            description: 'Recibes una herida en el costado y debes entregar parte de la bolsa.',
             statDelta: StatDelta(health: -16, combatSkill: 3, mood: -8),
             copperDelta: -120,
           ),
@@ -630,14 +599,12 @@ class EventsCatalog {
           label: 'Diseñar una estructura de celosía con vigas',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 52),
           successOutcome: EventOutcome(
-            description:
-                'Tu diseño moderno soporta carros cargados; el mercader paga con creces.',
+            description: 'Tu diseño moderno soporta carros cargados; el mercader paga con creces.',
             statDelta: StatDelta(intellect: 9, mood: 7),
             copperDelta: 450,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Los cálculos improvisados fallan y solo sirve para paso a pie.',
+            description: 'Los cálculos improvisados fallan y solo sirve para paso a pie.',
             statDelta: StatDelta(intellect: 3, mood: -5),
             copperDelta: 80,
           ),
@@ -673,13 +640,11 @@ class EventsCatalog {
           label: 'Solicitar un intercambio de golpes de prueba',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 44),
           successOutcome: EventOutcome(
-            description:
-                'Resististe diez asaltos. El caballero te enseña su guardia secreta.',
+            description: 'Resististe diez asaltos. El caballero te enseña su guardia secreta.',
             statDelta: StatDelta(combatSkill: 10, strength: 5, mood: 6),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Caes de bruces al segundo asalto, pero comprendes tus puntos débiles.',
+            description: 'Caes de bruces al segundo asalto, pero comprendes tus puntos débiles.',
             statDelta: StatDelta(combatSkill: 4, health: -6, mood: -3),
           ),
         ),
@@ -688,8 +653,7 @@ class EventsCatalog {
           label: 'Invitarle una jarra de vino y comida (1 Plata)',
           minCopperRequired: 100,
           successOutcome: EventOutcome(
-            description:
-                'Entre anécdotas de guerra comparte valiosos consejos tácticos y vitales.',
+            description: 'Entre anécdotas de guerra comparte valiosos consejos tácticos y vitales.',
             statDelta: StatDelta(
               combatSkill: 6,
               emotionalIntelligence: 5,
@@ -718,8 +682,7 @@ class EventsCatalog {
             copperDelta: 650,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El aire viciado te marea y debes salir a rastras con las manos vacías.',
+            description: 'El aire viciado te marea y debes salir a rastras con las manos vacías.',
             statDelta: StatDelta(health: -12, mood: -6),
           ),
         ),
@@ -728,8 +691,7 @@ class EventsCatalog {
           label: 'Cartografiar la entrada y vender el mapa al gremio',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 48),
           successOutcome: EventOutcome(
-            description:
-                'El gremio minero compra tus planos exactos sin arriesgar tu pellejo.',
+            description: 'El gremio minero compra tus planos exactos sin arriesgar tu pellejo.',
             statDelta: StatDelta(intellect: 6, mood: 4),
             copperDelta: 320,
           ),
@@ -757,14 +719,12 @@ class EventsCatalog {
             requiredScore: 50,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Tu temple sereno frena la pelea; el posadero agradece el gesto en plata.',
+            description: 'Tu temple sereno frena la pelea; el posadero agradece el gesto en plata.',
             statDelta: StatDelta(emotionalIntelligence: 8, mood: 6),
             copperDelta: 180,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Recibes un sillazo perdido antes de poder mediar.',
+            description: 'Recibes un sillazo perdido antes de poder mediar.',
             statDelta: StatDelta(health: -9, mood: -6),
           ),
         ),
@@ -773,8 +733,7 @@ class EventsCatalog {
           label: 'Inmovilizar al mercenario al instante',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 50),
           successOutcome: EventOutcome(
-            description:
-                'Una llave rápida termina el escándalo; ganas fama en la comarca.',
+            description: 'Una llave rápida termina el escándalo; ganas fama en la comarca.',
             statDelta: StatDelta(combatSkill: 7, strength: 4, mood: 5),
             copperDelta: 220,
           ),
@@ -802,14 +761,12 @@ class EventsCatalog {
           label: 'Revisar sus pergaminos fiscales y señalar errores',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 62),
           successOutcome: EventOutcome(
-            description:
-                'Demuestras que las cuentas estaban infladas; el concejo te premia en oro.',
+            description: 'Demuestras que las cuentas estaban infladas; el concejo te premia en oro.',
             statDelta: StatDelta(intellect: 7, mood: 8),
             copperDelta: 12000, // 1O 20P
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El alguacil impone su autoridad y debes pagar parte de la multa.',
+            description: 'El alguacil impone su autoridad y debes pagar parte de la multa.',
             statDelta: StatDelta(mood: -8),
             copperDelta: -600,
           ),
@@ -828,8 +785,7 @@ class EventsCatalog {
             copperDelta: 450,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'No cede ni un ápice y terminas asumiendo el coste.',
+            description: 'No cede ni un ápice y terminas asumiendo el coste.',
             statDelta: StatDelta(mood: -6),
             copperDelta: -400,
           ),
@@ -851,9 +807,12 @@ class EventsCatalog {
             requiredScore: 58,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Nadie pasa hambre gracias a tu organización; recibes honores y donativos.',
-            statDelta: StatDelta(emotionalIntelligence: 7, intellect: 4, mood: 7),
+            description: 'Nadie pasa hambre gracias a tu organización; recibes honores y donativos.',
+            statDelta: StatDelta(
+              emotionalIntelligence: 7,
+              intellect: 4,
+              mood: 7,
+            ),
             copperDelta: 800,
           ),
           failureOutcome: EventOutcome(
@@ -873,8 +832,7 @@ class EventsCatalog {
             copperDelta: 600,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El sobreesfuerzo en la ventisca pasa factura a tus articulaciones.',
+            description: 'El sobreesfuerzo en la ventisca pasa factura a tus articulaciones.',
             statDelta: StatDelta(health: -14, strength: -2, mood: -5),
           ),
         ),
@@ -893,8 +851,7 @@ class EventsCatalog {
           minCopperRequired: 500,
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 56),
           successOutcome: EventOutcome(
-            description:
-                'La venta en la capital supera todo cálculo. ¡Regresas con oro!',
+            description: 'La venta en la capital supera todo cálculo. ¡Regresas con oro!',
             statDelta: StatDelta(intellect: 5, mood: 10),
             copperDelta: 15000, // +1O 50P
           ),
@@ -910,14 +867,12 @@ class EventsCatalog {
           label: 'Servir como capitán de escolta',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 58),
           successOutcome: EventOutcome(
-            description:
-                'Mantienes a raya a los salteadores del paso y cobras en monedas de oro.',
+            description: 'Mantienes a raya a los salteadores del paso y cobras en monedas de oro.',
             statDelta: StatDelta(combatSkill: 6, strength: 3, mood: 6),
             copperDelta: 10000, // +1O
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Una escaramuza nocturna te deja herido, aunque salvan la carga.',
+            description: 'Una escaramuza nocturna te deja herido, aunque salvan la carga.',
             statDelta: StatDelta(health: -14, combatSkill: 3),
             copperDelta: 300,
           ),
@@ -936,14 +891,12 @@ class EventsCatalog {
           label: 'Aceptar el duelo ante toda la aldea',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 64),
           successOutcome: EventOutcome(
-            description:
-                'Tu técnica impecable quiebra su guardia; paga la bolsa apostada.',
+            description: 'Tu técnica impecable quiebra su guardia; paga la bolsa apostada.',
             statDelta: StatDelta(combatSkill: 8, mood: 9),
             copperDelta: 11000, // 1O 10P
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Cedes ante un golpe veloz y pasas semanas recuperando el aliento.',
+            description: 'Cedes ante un golpe veloz y pasas semanas recuperando el aliento.',
             statDelta: StatDelta(health: -16, mood: -8, combatSkill: 2),
           ),
         ),
@@ -963,16 +916,14 @@ class EventsCatalog {
       id: 'adult_chronic_ailment',
       stage: LifeStage.adulthood,
       title: 'Dolencia Persistente',
-      narrativeBuilder: (_, _) =>
-          'Los años de esfuerzo dejan huella: una punzada persistente en el pecho y las rodillas te obliga a replantear tu ritmo.',
+      narrativeBuilder: (_, _) => 'Los años de esfuerzo dejan huella: una punzada persistente en el pecho y las rodillas te obliga a replantear tu ritmo.',
       choices: const [
         EventChoice(
           id: 'buy_apothecary_cure',
           label: 'Costear tónicos del maestro boticario (3 Platas)',
           minCopperRequired: 300,
           successOutcome: EventOutcome(
-            description:
-                'Los bálsamos restauran tu vitalidad para afrontar los próximos años.',
+            description: 'Los bálsamos restauran tu vitalidad para afrontar los próximos años.',
             statDelta: StatDelta(health: 12, mood: 6),
             copperDelta: -300,
           ),
@@ -1013,14 +964,12 @@ class EventsCatalog {
             requiredScore: 65,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Tu sentencia es aclamada por todos; te ofrecen un tributo de gratitud.',
+            description: 'Tu sentencia es aclamada por todos; te ofrecen un tributo de gratitud.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 8),
             copperDelta: 10000,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Una de las familias queda resentida pese a tus buenas intenciones.',
+            description: 'Una de las familias queda resentida pese a tus buenas intenciones.',
             statDelta: StatDelta(mood: -6),
           ),
         ),
@@ -1029,8 +978,7 @@ class EventsCatalog {
           label: 'Redactar un registro catastral inapelable',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 65),
           successOutcome: EventOutcome(
-            description:
-                'Los linderos quedan claros por generaciones; ganas honra y oro.',
+            description: 'Los linderos quedan claros por generaciones; ganas honra y oro.',
             statDelta: StatDelta(intellect: 6, mood: 7),
             copperDelta: 10000,
           ),
@@ -1054,14 +1002,12 @@ class EventsCatalog {
           label: 'Tomar la espada de práctica y enseñarle en el patio',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 58),
           successOutcome: EventOutcome(
-            description:
-                'Tu maestría intacta asombra al muchacho; te entrega su bolsa de aprendiz.',
+            description: 'Tu maestría intacta asombra al muchacho; te entrega su bolsa de aprendiz.',
             statDelta: StatDelta(combatSkill: 4, mood: 9),
             copperDelta: 600,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Un tirón en el hombro interrumpe la clase, aunque agradeces el intento.',
+            description: 'Un tirón en el hombro interrumpe la clase, aunque agradeces el intento.',
             statDelta: StatDelta(health: -8, mood: -3),
           ),
         ),
@@ -1071,7 +1017,11 @@ class EventsCatalog {
           successOutcome: EventOutcome(
             description:
                 'Tus palabras siembran sabiduría sin forzar tu cuerpo.',
-            statDelta: StatDelta(intellect: 4, emotionalIntelligence: 4, mood: 5),
+            statDelta: StatDelta(
+              intellect: 4,
+              emotionalIntelligence: 4,
+              mood: 5,
+            ),
             copperDelta: 300,
           ),
         ),
@@ -1089,13 +1039,11 @@ class EventsCatalog {
           label: 'Mantener el ánimo firme y cuidar tu respiración',
           statCheck: StatCheck(stat: StatType.health, requiredScore: 62),
           successOutcome: EventOutcome(
-            description:
-                'Recibes la primavera entero, convertido en ejemplo de longevidad.',
+            description: 'Recibes la primavera entero, convertido en ejemplo de longevidad.',
             statDelta: StatDelta(health: 4, mood: 7),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El frío cala en tus pulmones y debilita tus fuerzas.',
+            description: 'El frío cala en tus pulmones y debilita tus fuerzas.',
             statDelta: StatDelta(health: -15, strength: -4, mood: -6),
           ),
         ),
@@ -1124,14 +1072,12 @@ class EventsCatalog {
           label: 'Dictar tus memorias y conocimientos',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 60),
           successOutcome: EventOutcome(
-            description:
-                'Tu historia queda grabada con brillo y recibes un premio de la corte.',
+            description: 'Tu historia queda grabada con brillo y recibes un premio de la corte.',
             statDelta: StatDelta(intellect: 5, mood: 10),
             copperDelta: 12000,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Los detalles dispersos confunden al cronista, pero disfrutas recordando.',
+            description: 'Los detalles dispersos confunden al cronista, pero disfrutas recordando.',
             statDelta: StatDelta(mood: 3),
           ),
         ),
@@ -1139,8 +1085,7 @@ class EventsCatalog {
           id: 'share_humble_wisdom',
           label: 'Contar anécdotas sencillas sobre la gente del pueblo',
           successOutcome: EventOutcome(
-            description:
-                'El cronista sonríe ante tu humildad y deja unas monedas de plata.',
+            description: 'El cronista sonríe ante tu humildad y deja unas monedas de plata.',
             statDelta: StatDelta(emotionalIntelligence: 5, mood: 6),
             copperDelta: 500,
           ),
@@ -1159,13 +1104,11 @@ class EventsCatalog {
           label: 'Abrazar la paz de todo lo vivido',
           statCheck: StatCheck(stat: StatType.mood, requiredScore: 60),
           successOutcome: EventOutcome(
-            description:
-                'Una serenidad profunda renueva tu espíritu y fortalece tu corazón.',
+            description: 'Una serenidad profunda renueva tu espíritu y fortalece tu corazón.',
             statDelta: StatDelta(mood: 12, health: 5, emotionalIntelligence: 4),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Un dejo de cansancio te envuelve al bajar la colina al anochecer.',
+            description: 'Un dejo de cansancio te envuelve al bajar la colina al anochecer.',
             statDelta: StatDelta(mood: -5, health: -4),
           ),
         ),
@@ -1200,13 +1143,11 @@ class EventsCatalog {
           label: 'Estirar los brazos intentando atrapar una',
           statCheck: StatCheck(stat: StatType.strength, requiredScore: 10),
           successOutcome: EventOutcome(
-            description:
-                'Logras posar un pequeño punto de luz en tu palma antes de soltarlo riendo.',
+            description: 'Logras posar un pequeño punto de luz en tu palma antes de soltarlo riendo.',
             statDelta: StatDelta(strength: 3, mood: 6),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Tu manita golpea el borde de la cuna, aunque el brillo te fascina.',
+            description: 'Tu manita golpea el borde de la cuna, aunque el brillo te fascina.',
             statDelta: StatDelta(mood: 2, health: -2),
           ),
         ),
@@ -1247,8 +1188,7 @@ class EventsCatalog {
           id: 'sip_slowly',
           label: 'Tomarlo poco a poco con miel',
           successOutcome: EventOutcome(
-            description:
-                'La dulzura suaviza las hierbas y te reconforta.',
+            description: 'La dulzura suaviza las hierbas y te reconforta.',
             statDelta: StatDelta(health: 3, emotionalIntelligence: 2),
           ),
         ),
@@ -1258,16 +1198,14 @@ class EventsCatalog {
       id: 'early_hearth_sparks',
       stage: LifeStage.earlyChildhood,
       title: 'Chispas del Hogar',
-      narrativeBuilder: (_, _) =>
-          'Una brasa salta de la chimenea hacia la alfombra de esparto mientras tus padres atienden fuera un instante.',
+      narrativeBuilder: (_, _) => 'Una brasa salta de la chimenea hacia la alfombra de esparto mientras tus padres atienden fuera un instante.',
       choices: const [
         EventChoice(
           id: 'kick_rug_away',
           label: 'Empujar la brasa con tu zapato de cuero',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 10),
           successOutcome: EventOutcome(
-            description:
-                'Reaccionas con reflejos impropios de tu edad y apagas la chispa.',
+            description: 'Reaccionas con reflejos impropios de tu edad y apagas la chispa.',
             statDelta: StatDelta(combatSkill: 4, strength: 2),
           ),
           failureOutcome: EventOutcome(
@@ -1299,8 +1237,7 @@ class EventsCatalog {
           label: 'Seguir el compás y repetir las estrofas',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 24),
           successOutcome: EventOutcome(
-            description:
-                'Memorizas versos enteros y el juglar te regala un cascabel de cobre.',
+            description: 'Memorizas versos enteros y el juglar te regala un cascabel de cobre.',
             statDelta: StatDelta(intellect: 5, mood: 5),
             copperDelta: 10,
           ),
@@ -1314,8 +1251,7 @@ class EventsCatalog {
           id: 'clap_with_crowd',
           label: 'Reír y aplaudir junto a los aldeanos',
           successOutcome: EventOutcome(
-            description:
-                'Contagias alegría a todos los presentes en la plaza.',
+            description: 'Contagias alegría a todos los presentes en la plaza.',
             statDelta: StatDelta(emotionalIntelligence: 4, mood: 6),
           ),
         ),
@@ -1368,8 +1304,7 @@ class EventsCatalog {
           label: 'Trepar hasta la copa por la corteza gruesa',
           statCheck: StatCheck(stat: StatType.strength, requiredScore: 24),
           successOutcome: EventOutcome(
-            description:
-                'Contemplas todo el valle desde lo alto y hallas un nido con una moneda brillante.',
+            description: 'Contemplas todo el valle desde lo alto y hallas un nido con una moneda brillante.',
             statDelta: StatDelta(strength: 5, mood: 7),
             copperDelta: 18,
           ),
@@ -1430,8 +1365,7 @@ class EventsCatalog {
       id: 'child_wounded_fox',
       stage: LifeStage.childhood,
       title: 'El Zorro Herido en el Zarzal',
-      narrativeBuilder: (_, _) =>
-          'Encuentras un zorro joven con una pata atrapada en un lazo oxidado cerca del seto.',
+      narrativeBuilder: (_, _) => 'Encuentras un zorro joven con una pata atrapada en un lazo oxidado cerca del seto.',
       choices: const [
         EventChoice(
           id: 'soothe_and_free',
@@ -1441,13 +1375,11 @@ class EventsCatalog {
             requiredScore: 30,
           ),
           successOutcome: EventOutcome(
-            description:
-                'El animal confía en ti, se deja liberar y corre libre hacia el bosque.',
+            description: 'El animal confía en ti, se deja liberar y corre libre hacia el bosque.',
             statDelta: StatDelta(emotionalIntelligence: 7, mood: 7),
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Asustado, te da un mordisco rápido en la mano antes de escapar.',
+            description: 'Asustado, te da un mordisco rápido en la mano antes de escapar.',
             statDelta: StatDelta(health: -6, emotionalIntelligence: 2),
           ),
         ),
@@ -1474,8 +1406,7 @@ class EventsCatalog {
           label: 'Calcular la respuesta mentalmente y responder',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 32),
           successOutcome: EventOutcome(
-            description:
-                'Aciertas al instante; el mercader cumple su palabra asombrado.',
+            description: 'Aciertas al instante; el mercader cumple su palabra asombrado.',
             statDelta: StatDelta(intellect: 6, mood: 6),
             copperDelta: 45,
           ),
@@ -1507,8 +1438,7 @@ class EventsCatalog {
           id: 'comfort_friend',
           label: 'Contar historias para calmar el miedo a los truenos',
           successOutcome: EventOutcome(
-            description:
-                'Mantienes alto el ánimo de ambos hasta que escampa el temporal.',
+            description: 'Mantienes alto el ánimo de ambos hasta que escampa el temporal.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 5),
           ),
         ),
@@ -1543,14 +1473,12 @@ class EventsCatalog {
           label: 'Tomar una pica y vigilar hasta el alba',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 32),
           successOutcome: EventOutcome(
-            description:
-                'Detectas sombras sospechosas a tiempo y cobras paga de guardia.',
+            description: 'Detectas sombras sospechosas a tiempo y cobras paga de guardia.',
             statDelta: StatDelta(combatSkill: 6, strength: 3),
             copperDelta: 110,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'El sueño te vence en el último turno y recibes una reprimenda.',
+            description: 'El sueño te vence en el último turno y recibes una reprimenda.',
             statDelta: StatDelta(health: -5, mood: -6),
             copperDelta: 25,
           ),
@@ -1559,8 +1487,7 @@ class EventsCatalog {
           id: 'keep_watchfires_lit',
           label: 'Mantener las hogueras y relevar mensajes',
           successOutcome: EventOutcome(
-            description:
-                'Cumples con seriedad y recibes una recompensa justa.',
+            description: 'Cumples con seriedad y recibes una recompensa justa.',
             statDelta: StatDelta(health: 2, emotionalIntelligence: 3),
             copperDelta: 65,
           ),
@@ -1571,8 +1498,7 @@ class EventsCatalog {
       id: 'adol_adventurer_posters',
       stage: LifeStage.adolescence,
       title: 'Carteles del Gremio de Aventureros',
-      narrativeBuilder: (_, npc) =>
-          'Un mensajero clava en la taberna bandos del Gremio de Aventureros anunciando que todo joven de 15 años puede aspirar a Rango E.',
+      narrativeBuilder: (_, npc) => 'Un mensajero clava en la taberna bandos del Gremio de Aventureros anunciando que todo joven de 15 años puede aspirar a Rango E.',
       choices: const [
         EventChoice(
           id: 'ask_veteran_tips',
@@ -1582,8 +1508,7 @@ class EventsCatalog {
             requiredScore: 36,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Te revela trucos de supervivencia y te regala una piedra de afilar.',
+            description: 'Te revela trucos de supervivencia y te regala una piedra de afilar.',
             statDelta: StatDelta(combatSkill: 5, intellect: 4, mood: 6),
           ),
           failureOutcome: EventOutcome(
@@ -1596,8 +1521,7 @@ class EventsCatalog {
           id: 'memorize_quest_rules',
           label: 'Leer con detalle las normas y tarifas de los rangos',
           successOutcome: EventOutcome(
-            description:
-                'Trazas tu plan para abrirte camino en este mundo.',
+            description: 'Trazas tu plan para abrirte camino en este mundo.',
             statDelta: StatDelta(intellect: 5, mood: 4),
           ),
         ),
@@ -1615,14 +1539,12 @@ class EventsCatalog {
           label: 'Enfrentarlo con un venablo y escudo de madera',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 34),
           successOutcome: EventOutcome(
-            description:
-                'Esquivas su embestida y lo abates; la carne y recompensa son tuyas.',
+            description: 'Esquivas su embestida y lo abates; la carne y recompensa son tuyas.',
             statDelta: StatDelta(combatSkill: 7, strength: 4, mood: 6),
             copperDelta: 140,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Te arroja al suelo rozándote la pierna antes de huir al monte.',
+            description: 'Te arroja al suelo rozándote la pierna antes de huir al monte.',
             statDelta: StatDelta(health: -14, mood: -5, combatSkill: 2),
           ),
         ),
@@ -1630,8 +1552,7 @@ class EventsCatalog {
           id: 'drive_out_noise',
           label: 'Coordinar a los vecinos con cacerolas y antorchas',
           successOutcome: EventOutcome(
-            description:
-                'Espantan al animal sin que nadie salga herido.',
+            description: 'Espantan al animal sin que nadie salga herido.',
             statDelta: StatDelta(emotionalIntelligence: 5, intellect: 3),
             copperDelta: 55,
           ),
@@ -1666,14 +1587,12 @@ class EventsCatalog {
           label: 'Montar una palanca con un tronco y cuerda',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 36),
           successOutcome: EventOutcome(
-            description:
-                'La física básica hace maravillas; el mercader te paga en plata.',
+            description: 'La física básica hace maravillas; el mercader te paga en plata.',
             statDelta: StatDelta(intellect: 6, mood: 5),
             copperDelta: 150,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'La cuerda se rompe en el primer intento y deben buscar bueyes.',
+            description: 'La cuerda se rompe en el primer intento y deben buscar bueyes.',
             statDelta: StatDelta(intellect: 2, mood: -3),
           ),
         ),
@@ -1690,8 +1609,7 @@ class EventsCatalog {
           id: 'vow_adventure',
           label: 'Jurar que recorrerás este mundo sin arrepentimientos',
           successOutcome: EventOutcome(
-            description:
-                'Sientes arder una ambición serena en tu pecho.',
+            description: 'Sientes arder una ambición serena en tu pecho.',
             statDelta: StatDelta(mood: 9, combatSkill: 3),
           ),
         ),
@@ -1720,8 +1638,7 @@ class EventsCatalog {
           label: 'Tenderles una emboscada desde las rocas',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 46),
           successOutcome: EventOutcome(
-            description:
-                'Los reduces en segundos y recuperas una bolsa de plata robada.',
+            description: 'Los reduces en segundos y recuperas una bolsa de plata robada.',
             statDelta: StatDelta(combatSkill: 8, strength: 3, mood: 6),
             copperDelta: 320,
           ),
@@ -1753,8 +1670,7 @@ class EventsCatalog {
       id: 'youth_ruined_shrine',
       stage: LifeStage.youth,
       title: 'Santuario en Ruinas',
-      narrativeBuilder: (_, _) =>
-          'Entre la hiedra de una colina olvidada aparece una capilla derrumbada con inscripciones antiguas y un cofre sellado.',
+      narrativeBuilder: (_, _) => 'Entre la hiedra de una colina olvidada aparece una capilla derrumbada con inscripciones antiguas y un cofre sellado.',
       choices: const [
         EventChoice(
           id: 'decipher_seal',
@@ -1783,8 +1699,7 @@ class EventsCatalog {
             copperDelta: 400,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'La piedra cede mal y aplasta tus dedos con dolor.',
+            description: 'La piedra cede mal y aplasta tus dedos con dolor.',
             statDelta: StatDelta(health: -12, mood: -4),
           ),
         ),
@@ -1802,8 +1717,7 @@ class EventsCatalog {
           label: 'Prestarle 2 Platas de tu bolsa',
           minCopperRequired: 200,
           successOutcome: EventOutcome(
-            description:
-                'Salvas el sustento de su familia; te devuelve su gratitud eterna.',
+            description: 'Salvas el sustento de su familia; te devuelve su gratitud eterna.',
             statDelta: StatDelta(emotionalIntelligence: 8, mood: 9),
             copperDelta: -200,
           ),
@@ -1816,8 +1730,7 @@ class EventsCatalog {
             requiredScore: 48,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Consigues una prórroga sin intereses abusivos y te pagan por tu gestión.',
+            description: 'Consigues una prórroga sin intereses abusivos y te pagan por tu gestión.',
             statDelta: StatDelta(emotionalIntelligence: 7, intellect: 3),
             copperDelta: 110,
           ),
@@ -1869,8 +1782,7 @@ class EventsCatalog {
       id: 'youth_county_fair',
       stage: LifeStage.youth,
       title: 'Feria del Condado',
-      narrativeBuilder: (_, _) =>
-          'Mercaderes, acróbatas y espadachines llenan la feria anual comarcal con competiciones y apuestas.',
+      narrativeBuilder: (_, _) => 'Mercaderes, acróbatas y espadachines llenan la feria anual comarcal con competiciones y apuestas.',
       choices: const [
         EventChoice(
           id: 'dueling_ring',
@@ -1883,8 +1795,7 @@ class EventsCatalog {
             copperDelta: 400,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Caes en semifinales tras un duro combate.',
+            description: 'Caes en semifinales tras un duro combate.',
             statDelta: StatDelta(combatSkill: 3, health: -7, mood: -2),
             copperDelta: 80,
           ),
@@ -1897,8 +1808,7 @@ class EventsCatalog {
             requiredScore: 46,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Tu labia atrae compradores y haces muy buen negocio.',
+            description: 'Tu labia atrae compradores y haces muy buen negocio.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 6),
             copperDelta: 340,
           ),
@@ -1925,8 +1835,7 @@ class EventsCatalog {
           label: 'Encabezar la milicia al amanecer',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 62),
           successOutcome: EventOutcome(
-            description:
-                'Desbandas el campamento y el señor local te recompensa en oro.',
+            description: 'Desbandas el campamento y el señor local te recompensa en oro.',
             statDelta: StatDelta(combatSkill: 7, strength: 3, mood: 8),
             copperDelta: 12000,
           ),
@@ -1942,8 +1851,7 @@ class EventsCatalog {
           label: 'Cortar sus suministros y negociar su rendición',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 60),
           successOutcome: EventOutcome(
-            description:
-                'Sin víveres ni salida, se entregan sin apenas lucha.',
+            description: 'Sin víveres ni salida, se entregan sin apenas lucha.',
             statDelta: StatDelta(intellect: 7, emotionalIntelligence: 4),
             copperDelta: 8000,
           ),
@@ -1986,8 +1894,7 @@ class EventsCatalog {
           label: 'Darle un duelo instructivo para mostrar sus carencias',
           statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 56),
           successOutcome: EventOutcome(
-            description:
-                'Lo desarmas en tres segundos; promete entrenar con disciplina.',
+            description: 'Lo desarmas en tres segundos; promete entrenar con disciplina.',
             statDelta: StatDelta(combatSkill: 5, mood: 5),
             copperDelta: 250,
           ),
@@ -2137,12 +2044,15 @@ class EventsCatalog {
           successOutcome: EventOutcome(
             description:
                 'Tu consejo resuelve su problema y envía un segundo regalo.',
-            statDelta: StatDelta(intellect: 4, emotionalIntelligence: 4, mood: 8),
+            statDelta: StatDelta(
+              intellect: 4,
+              emotionalIntelligence: 4,
+              mood: 8,
+            ),
             copperDelta: 13000,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'Agradece la carta afectuosa aunque sus asuntos ya habían cerrado.',
+            description: 'Agradece la carta afectuosa aunque sus asuntos ya habían cerrado.',
             statDelta: StatDelta(mood: 4),
             copperDelta: 5000,
           ),
@@ -2153,15 +2063,13 @@ class EventsCatalog {
       id: 'old_attic_chest',
       stage: LifeStage.oldAge,
       title: 'El Baúl del Desván',
-      narrativeBuilder: (_, _) =>
-          'Ordenando el desván de tu casa, encuentras un arcón polvoriento con recuerdos de todas las décadas que has vivido.',
+      narrativeBuilder: (_, _) => 'Ordenando el desván de tu casa, encuentras un arcón polvoriento con recuerdos de todas las décadas que has vivido.',
       choices: const [
         EventChoice(
           id: 'organize_archive',
           label: 'Catalogar tus mapas, notas y diarios',
           successOutcome: EventOutcome(
-            description:
-                'Redescubres apuntes de tu vida pasada que llenan tu corazón de orgullo.',
+            description: 'Redescubres apuntes de tu vida pasada que llenan tu corazón de orgullo.',
             statDelta: StatDelta(intellect: 5, mood: 8),
           ),
         ),
@@ -2170,8 +2078,7 @@ class EventsCatalog {
           label: 'Bajarlo tú mismo para restaurar la madera',
           statCheck: StatCheck(stat: StatType.strength, requiredScore: 45),
           successOutcome: EventOutcome(
-            description:
-                'Aún conservas vigor y hallas una bolsa oculta en el doble fondo.',
+            description: 'Aún conservas vigor y hallas una bolsa oculta en el doble fondo.',
             statDelta: StatDelta(strength: 3, mood: 6),
             copperDelta: 800,
           ),
@@ -2198,14 +2105,12 @@ class EventsCatalog {
             requiredScore: 60,
           ),
           successOutcome: EventOutcome(
-            description:
-                'Tu discurso arranca vítores y lágrimas de emoción en la plaza.',
+            description: 'Tu discurso arranca vítores y lágrimas de emoción en la plaza.',
             statDelta: StatDelta(emotionalIntelligence: 6, mood: 12),
             copperDelta: 700,
           ),
           failureOutcome: EventOutcome(
-            description:
-                'La voz se te quiebra por la emoción, pero todos aplauden con cariño.',
+            description: 'La voz se te quiebra por la emoción, pero todos aplauden con cariño.',
             statDelta: StatDelta(mood: 6),
           ),
         ),
@@ -2232,9 +2137,12 @@ class EventsCatalog {
           label: 'Conversar sobre destinos y mundos lejanos',
           statCheck: StatCheck(stat: StatType.intellect, requiredScore: 62),
           successOutcome: EventOutcome(
-            description:
-                'El peregrino asiente en silencio y te deja una piedra de oro puro.',
-            statDelta: StatDelta(intellect: 5, emotionalIntelligence: 4, mood: 8),
+            description: 'El peregrino asiente en silencio y te deja una piedra de oro puro.',
+            statDelta: StatDelta(
+              intellect: 5,
+              emotionalIntelligence: 4,
+              mood: 8,
+            ),
             copperDelta: 10000,
           ),
           failureOutcome: EventOutcome(
@@ -2258,8 +2166,7 @@ class EventsCatalog {
       id: 'old_lightning_night',
       stage: LifeStage.oldAge,
       title: 'Noche de Relámpagos',
-      narrativeBuilder: (_, _) =>
-          'Una tormenta eléctrica sacude los postigos mientras el frío nocturno pone a prueba tu cansado cuerpo.',
+      narrativeBuilder: (_, _) => 'Una tormenta eléctrica sacude los postigos mientras el frío nocturno pone a prueba tu cansado cuerpo.',
       choices: const [
         EventChoice(
           id: 'breathe_and_resist',
@@ -2287,6 +2194,857 @@ class EventsCatalog {
         ),
       ],
     ),
+
+    // =========================================================================
+    // +3 NUEVOS DE MAGIA, CRIATURAS Y MUNDO VIVO POR ETAPA (+18 -> 78 eventos)
+    // =========================================================================
+
+    // --- Infancia temprana (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'early_will_o_wisp',
+      stage: LifeStage.earlyChildhood,
+      title: 'Fuego Fatuo en el Jardín',
+      narrativeBuilder: (hero, _) =>
+          'Una esfera azulada de magia salvaje flota suavemente junto al cercado de ${hero.villageName} iluminando la hierba nocturna.',
+      choices: const [
+        EventChoice(
+          id: 'gaze_wisp',
+          label: 'Observar su resplandor con asombro',
+          successOutcome: EventOutcome(
+            description: 'El fuego fatuo gira sobre tu cabeza y se disipa en polvo brillante.',
+            statDelta: StatDelta(emotionalIntelligence: 4, mood: 6),
+          ),
+        ),
+        EventChoice(
+          id: 'babble_at_wisp',
+          label: 'Extender la mano imitando su brillo',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 24),
+          successOutcome: EventOutcome(
+            description:
+                'El espíritu elemental responde con un tintineo armonioso.',
+            statDelta: StatDelta(intellect: 5, mood: 5),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El destello frío te sobresalta y regresas gateando adentro.',
+            statDelta: StatDelta(mood: -3, health: -2),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'early_two_tailed_cat',
+      stage: LifeStage.earlyChildhood,
+      title: 'El Gato de Dos Colas',
+      narrativeBuilder: (_, _) => 'Un gato montés de pelaje plateado y dos colas se posa en el alféizar observándote con ojos inteligentes.',
+      choices: const [
+        EventChoice(
+          id: 'share_milk_crumb',
+          label: 'Ofrecerle un trocito de queso en silencio',
+          successOutcome: EventOutcome(
+            description:
+                'La criatura ronronea y deja caer una piedrecilla brillante.',
+            statDelta: StatDelta(emotionalIntelligence: 5, mood: 5),
+            copperDelta: 12,
+          ),
+        ),
+        EventChoice(
+          id: 'try_catch_tail',
+          label: 'Intentar agarrar sus dos colas juguetón',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 10),
+          successOutcome: EventOutcome(
+            description: 'El felino esquiva de un brinco pero te deja rascarle tras la oreja.',
+            statDelta: StatDelta(combatSkill: 3, strength: 2, mood: 4),
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Te da un zarpazo suave de advertencia antes de saltar al tejado.',
+            statDelta: StatDelta(health: -4, mood: -3),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'early_rune_dreams',
+      stage: LifeStage.earlyChildhood,
+      title: 'Sueños de Runas Brillantes',
+      narrativeBuilder: (_, _) => 'Mientras duermes profundamente, líneas luminosas flotan en tus sueños mezclando recuerdos de tu antigua vida con el aire mágico de este mundo.',
+      choices: const [
+        EventChoice(
+          id: 'follow_runes',
+          label: 'Seguir el trazo de las runas en sueños',
+          successOutcome: EventOutcome(
+            description: 'Despiertas con la mente sorprendentemente despejada.',
+            statDelta: StatDelta(intellect: 5, emotionalIntelligence: 3),
+          ),
+        ),
+        EventChoice(
+          id: 'sleep_deeply',
+          label: 'Abandonarte al descanso cálido sin pensar',
+          successOutcome: EventOutcome(
+            description: 'Amaneces rebosante de energía y buen humor.',
+            statDelta: StatDelta(health: 5, mood: 6),
+          ),
+        ),
+      ],
+    ),
+
+    // --- Niñez (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'child_blue_slime',
+      stage: LifeStage.childhood,
+      title: 'Limo Azul en el Estanque',
+      narrativeBuilder: (hero, _) =>
+          'Junto al lavadero de ${hero.villageName}, un pequeño limo translúcido devora restos de fruta antes de que nadie lo vea.',
+      choices: const [
+        EventChoice(
+          id: 'poke_slime_stick',
+          label: 'Despejarlo con una vara y proteger el agua',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 18),
+          successOutcome: EventOutcome(
+            description: 'Dispersas el núcleo del limo y recoges una gema menor vendible.',
+            statDelta: StatDelta(combatSkill: 5, strength: 3),
+            copperDelta: 40,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El limo salpica ácido leve sobre tus manos antes de huir.',
+            statDelta: StatDelta(health: -7, mood: -4),
+          ),
+        ),
+        EventChoice(
+          id: 'capture_in_jar',
+          label: 'Atraerlo a un tarro de barro con miel',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 30),
+          successOutcome: EventOutcome(
+            description:
+                'El boticario compra el limo íntegro para sus filtros mágicos.',
+            statDelta: StatDelta(intellect: 5, mood: 4),
+            copperDelta: 55,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El tarro se resbala y el limo escapa entre los juncos.',
+            statDelta: StatDelta(mood: -3),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'child_mana_crystal_peddler',
+      stage: LifeStage.childhood,
+      title: 'El Buhonero de Cristales de Maná',
+      narrativeBuilder: (_, npc) =>
+          'El mercader $npc exhibe en su carro esquirlas de cristal luminoso traídas de la Torre Arcana.',
+      choices: const [
+        EventChoice(
+          id: 'buy_mana_shard',
+          label: 'Comprar una esquirla para entrenar (40 Cobre)',
+          minCopperRequired: 40,
+          successOutcome: EventOutcome(
+            description: 'Absorbes su tenue resonancia mágica fortaleciendo mente y vitalidad.',
+            statDelta: StatDelta(intellect: 4, mana: 5, mood: 4),
+            copperDelta: -40,
+          ),
+        ),
+        EventChoice(
+          id: 'ask_arcane_lore',
+          label: 'Preguntar por la Torre Arcana y las criaturas mágicas',
+          successOutcome: EventOutcome(
+            description: 'El viajero te cuenta leyendas sobre el Rey Demonio y los magos.',
+            statDelta: StatDelta(intellect: 4, emotionalIntelligence: 3),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'child_dryad_whispers',
+      stage: LifeStage.childhood,
+      title: 'Susurros de la Dríade del Bosque',
+      requiresManaAwakened: true,
+      narrativeBuilder: (_, _) => 'Al percibir tu maná recién despertado, una dríade de corteza esmeralda asoma entre los sauces ofreciéndote una prueba de armonía.',
+      choices: const [
+        EventChoice(
+          id: 'resonate_mana_dryad',
+          label: 'Sincronizar tu maná con las hojas del bosque',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 28),
+          successOutcome: EventOutcome(
+            description:
+                'Un hilo de luz verde envuelve tus manos expandiendo tu maná.',
+            statDelta: StatDelta(mana: 9, health: 4, mood: 7),
+          ),
+          failureOutcome: EventOutcome(
+            description: 'La energía silvestre te marea levemente antes de desvanecerse.',
+            statDelta: StatDelta(mana: 3, mood: -4),
+          ),
+        ),
+        EventChoice(
+          id: 'bow_respectfully',
+          label: 'Inclinarte con respeto y escuchar su canto',
+          successOutcome: EventOutcome(
+            description: 'La dríade bendice tu calma emocional y desaparece en el tronco.',
+            statDelta: StatDelta(emotionalIntelligence: 6, mood: 5),
+          ),
+        ),
+      ],
+    ),
+
+    // --- Adolescencia (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'adol_winged_beast',
+      stage: LifeStage.adolescence,
+      title: 'Bestia Alada Sobre el Valle',
+      narrativeBuilder: (hero, _) =>
+          'Un grifo joven herido planea en círculos sobre los pastos de ${hero.villageName} buscando refugio o presa.',
+      choices: const [
+        EventChoice(
+          id: 'drive_griffin_away',
+          label: 'Espantarlo con flechas incendiarias y gritos',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 36),
+          successOutcome: EventOutcome(
+            description: 'La bestia remonta el vuelo dejando caer una pluma mágica valiosa.',
+            statDelta: StatDelta(combatSkill: 7, mood: 6),
+            copperDelta: 180,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Una ráfaga de sus alas te arroja contra la cerca de madera.',
+            statDelta: StatDelta(health: -12, mood: -5),
+          ),
+        ),
+        EventChoice(
+          id: 'leave_meat_distraction',
+          label: 'Lanzar despojos lejos del ganado para evitar combate',
+          successOutcome: EventOutcome(
+            description:
+                'La criatura toma la ofrenda y se aleja sin causar bajas.',
+            statDelta: StatDelta(intellect: 5, emotionalIntelligence: 4),
+            copperDelta: 60,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'adol_lost_mage_apprentice',
+      stage: LifeStage.adolescence,
+      title: 'El Aprendiz de Mago Perdido',
+      requiresManaAwakened: true,
+      narrativeBuilder: (_, npc) =>
+          'El joven aprendiz $npc de la Torre Arcana se extravió buscando hierbas rúnicas y pide intercambiar apuntes de conjuros.',
+      choices: const [
+        EventChoice(
+          id: 'exchange_mana_theory',
+          label: 'Practicar un hechizo de chispa luminosa junto a él',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 38),
+          successOutcome: EventOutcome(
+            description: 'Canalizas el maná con precisión y él te regala un grimorio básico.',
+            statDelta: StatDelta(mana: 8, intellect: 5, mood: 6),
+            copperDelta: 120,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El conjuro chisporrotea sin fuerza, pero aprendes la teoría.',
+            statDelta: StatDelta(mana: 3, intellect: 2),
+          ),
+        ),
+        EventChoice(
+          id: 'guide_back_road',
+          label: 'Acompañarlo hasta el camino real por una propina',
+          successOutcome: EventOutcome(
+            description:
+                'Agradece tu ayuda con monedas de plata y elogios al gremio.',
+            statDelta: StatDelta(emotionalIntelligence: 4, mood: 4),
+            copperDelta: 140,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'adol_kingdom_recruiters',
+      stage: LifeStage.adolescence,
+      title: 'Rumores de Reclutas del Reino',
+      narrativeBuilder: (_, npc) =>
+          'En la posada, soldados reales comandados por $npc comentan cómo el reino busca jóvenes promesas ante las grietas del sello demoníaco.',
+      choices: const [
+        EventChoice(
+          id: 'spar_with_soldier',
+          label: 'Pedir un entrenamiento breve con uno de los soldados',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 34),
+          successOutcome: EventOutcome(
+            description:
+                'Impresionas al sargento y te enseña cortes militares.',
+            statDelta: StatDelta(combatSkill: 6, strength: 3, mood: 5),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Te derriba en segundos, aunque te anima a seguir entrenando.',
+            statDelta: StatDelta(combatSkill: 3, health: -5),
+          ),
+        ),
+        EventChoice(
+          id: 'listen_world_news',
+          label: 'Invitarles una jarra para conocer el estado de los reinos',
+          successOutcome: EventOutcome(
+            description: 'Comprendes mejor la geografía política y los peligros del continente.',
+            statDelta: StatDelta(intellect: 4, emotionalIntelligence: 4),
+          ),
+        ),
+      ],
+    ),
+
+    // --- Juventud (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'youth_gargoyle_caravan',
+      stage: LifeStage.youth,
+      title: 'Caravana Atacada por Gárgolas',
+      narrativeBuilder: (_, npc) =>
+          'Gárgolas de piedra animadas por miasma descienden sobre los carros del mercader $npc en el paso montañoso.',
+      choices: const [
+        EventChoice(
+          id: 'shatter_gargoyles',
+          label: 'Romper su caparazón con golpes certeros',
+          statCheck: StatCheck(stat: StatType.strength, requiredScore: 50),
+          successOutcome: EventOutcome(
+            description: 'Destrozas sus núcleos mágicos y cobras una espléndida bolsa de plata.',
+            statDelta: StatDelta(strength: 6, combatSkill: 4, mood: 6),
+            copperDelta: 550,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Las garras pétreas hieren tu hombro antes de que la escolta las abata.',
+            statDelta: StatDelta(health: -15, mood: -6),
+            copperDelta: 100,
+          ),
+        ),
+        EventChoice(
+          id: 'lure_into_ravine',
+          label: 'Atraerlas hacia un desfiladero estrecho con espejos y fuego',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 50),
+          successOutcome: EventOutcome(
+            description:
+                'Quedan atascadas entre las rocas y salvas toda la carga.',
+            statDelta: StatDelta(intellect: 6, mood: 6),
+            copperDelta: 480,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El plan falla parcialmente y se pierde parte de los víveres.',
+            statDelta: StatDelta(mood: -5),
+            copperDelta: 90,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'youth_unstable_mana_crystal',
+      stage: LifeStage.youth,
+      title: 'Cristal de Maná Inestable',
+      requiresManaAwakened: true,
+      narrativeBuilder: (_, _) => 'En un cruce de caminos vibra un obelisco de cristal agrietado que amenaza con estallar en una onda arcana.',
+      choices: const [
+        EventChoice(
+          id: 'stabilize_crystal_mana',
+          label: 'Canalizar tu propio maná para equilibrar el flujo',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 48),
+          successOutcome: EventOutcome(
+            description: 'Domina la corriente arcana; tu reserva de maná crece enormemente.',
+            statDelta: StatDelta(mana: 10, intellect: 4, mood: 7),
+            copperDelta: 420,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Una descarga violenta te lanza hacia atrás quemando tus ropas.',
+            statDelta: StatDelta(health: -14, mana: 2, mood: -6),
+          ),
+        ),
+        EventChoice(
+          id: 'evacuate_travelers',
+          label: 'Evacuar la zona y avisar a la orden arcana',
+          successOutcome: EventOutcome(
+            description:
+                'Nadie sale herido y los magos agradecen tu prudencia.',
+            statDelta: StatDelta(emotionalIntelligence: 5, mood: 4),
+            copperDelta: 180,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'youth_hero_candidate_encounter',
+      stage: LifeStage.youth,
+      title: 'Encuentro con un Aspirante a Héroe',
+      narrativeBuilder: (_, npc) =>
+          'En una posada conoces a $npc, un joven espadachín elegido por su ducado para las pruebas del Grupo de Héroes.',
+      choices: const [
+        EventChoice(
+          id: 'friendly_match_hero',
+          label: 'Proponer un combate amistoso de práctica',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 50),
+          successOutcome: EventOutcome(
+            description: 'Tu nivel sorprende al aspirante; intercambian técnicas y respeto.',
+            statDelta: StatDelta(combatSkill: 7, mood: 7),
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Te supera por velocidad, pero comprendes el estándar de los héroes.',
+            statDelta: StatDelta(combatSkill: 4, health: -5),
+          ),
+        ),
+        EventChoice(
+          id: 'share_world_perspective',
+          label: 'Conversar sobre el peso de la profecía del Rey Demonio',
+          successOutcome: EventOutcome(
+            description: 'Tu madurez serena le da fuerzas y forjan una amistad duradera.',
+            statDelta: StatDelta(emotionalIntelligence: 6, mood: 5),
+          ),
+        ),
+      ],
+    ),
+
+    // --- Adultez (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'adult_demonic_miasma_fissure',
+      stage: LifeStage.adulthood,
+      title: 'Fisura de Miasma Demoníaco',
+      narrativeBuilder: (_, _) => 'Una grieta humeante se abre en el suelo del páramo emitiendo niebla corrupta y espectros menores.',
+      choices: const [
+        EventChoice(
+          id: 'seal_with_mana',
+          label: 'Cerrar la fisura proyectando un sello de maná',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 58),
+          successOutcome: EventOutcome(
+            description: 'Tu conjuro purifica la brecha; los reinos premian la hazaña en oro.',
+            statDelta: StatDelta(mana: 7, mood: 8),
+            copperDelta: 11000,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El miasma quema tus pulmones antes de que logres contenerla.',
+            statDelta: StatDelta(health: -16, mood: -7),
+          ),
+        ),
+        EventChoice(
+          id: 'collapse_with_boulders',
+          label: 'Derrumbar el talud rocoso sobre la grieta',
+          statCheck: StatCheck(stat: StatType.strength, requiredScore: 58),
+          successOutcome: EventOutcome(
+            description: 'Sepultas la brecha bajo toneladas de piedra salvando la comarca.',
+            statDelta: StatDelta(strength: 5, mood: 7),
+            copperDelta: 8500,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Un espectro te hiere antes de completar el derrumbe.',
+            statDelta: StatDelta(health: -14, mood: -5),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'adult_arcane_relic_auction',
+      stage: LifeStage.adulthood,
+      title: 'Subasta de Reliquia Arcana',
+      narrativeBuilder: (_, npc) =>
+          'El coleccionista $npc organiza una puja discreta por un báculo rúnico recuperado de una ruina élfica.',
+      choices: const [
+        EventChoice(
+          id: 'appraise_fake_relic',
+          label: 'Examinar la autenticidad de las runas antes de pujar',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 60),
+          successOutcome: EventOutcome(
+            description: 'Detectas una pieza genuina subestimada y la revendes con enorme ganancia.',
+            statDelta: StatDelta(intellect: 6, mood: 8),
+            copperDelta: 13000,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Cometes un error de cálculo y pierdes la fianza de la subasta.',
+            statDelta: StatDelta(mood: -6),
+            copperDelta: -500,
+          ),
+        ),
+        EventChoice(
+          id: 'bid_five_silver',
+          label: 'Pujar 5 Platas por tomos de estudio complementarios',
+          minCopperRequired: 500,
+          successOutcome: EventOutcome(
+            description: 'Adquieres tratados valiosos que elevan tu saber y reserva mágica.',
+            statDelta: StatDelta(intellect: 6, mana: 5),
+            copperDelta: -500,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'adult_abyss_deserters',
+      stage: LifeStage.adulthood,
+      title: 'Desertores del Frente del Abismo',
+      narrativeBuilder: (_, npc) =>
+          'Tres soldados agotados liderados por $npc huyen de las batallas contra las huestes demoníacas buscando refugio.',
+      choices: const [
+        EventChoice(
+          id: 'counsel_deserters',
+          label: 'Escuchar su trauma y guiarlos a una labor segura',
+          statCheck: StatCheck(
+            stat: StatType.emotionalIntelligence,
+            requiredScore: 60,
+          ),
+          successOutcome: EventOutcome(
+            description: 'Evitas un conflicto y los integras protegiendo los caminos locales.',
+            statDelta: StatDelta(emotionalIntelligence: 7, mood: 6),
+            copperDelta: 450,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'Desconfían de ti y huyen durante la noche robando provisiones.',
+            statDelta: StatDelta(mood: -6),
+            copperDelta: -250,
+          ),
+        ),
+        EventChoice(
+          id: 'disarm_renegades',
+          label: 'Reducirlos si intentan saquear la posada',
+          statCheck: StatCheck(stat: StatType.combatSkill, requiredScore: 60),
+          successOutcome: EventOutcome(
+            description: 'Impones orden sin matar a nadie y recibes recompensa del alguacil.',
+            statDelta: StatDelta(combatSkill: 5, mood: 4),
+            copperDelta: 900,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'En la desesperación logran herirte antes de escapar.',
+            statDelta: StatDelta(health: -14, mood: -5),
+          ),
+        ),
+      ],
+    ),
+
+    // --- Vejez (+3 -> total 13) ---
+    GameEventDefinition(
+      id: 'old_young_mage_pupil',
+      stage: LifeStage.oldAge,
+      title: 'Joven Mago en Busca de Guía',
+      requiresManaAwakened: true,
+      narrativeBuilder: (_, npc) =>
+          'Un joven hechicero llamado $npc acude a ti tras oír historias sobre la singular pureza de tu maná.',
+      choices: const [
+        EventChoice(
+          id: 'teach_mana_control',
+          label: 'Instruirle en el control fino del maná',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 55),
+          successOutcome: EventOutcome(
+            description: 'Tu enseñanza inspira a una nueva generación y te colma de dicha.',
+            statDelta: StatDelta(mana: 4, mood: 10, emotionalIntelligence: 4),
+            copperDelta: 1200,
+          ),
+          failureOutcome: EventOutcome(
+            description: 'El esfuerzo mágico fatiga tu cuerpo cansado aunque él aprende.',
+            statDelta: StatDelta(health: -7, mood: 2),
+          ),
+        ),
+        EventChoice(
+          id: 'gift_old_notes',
+          label: 'Entregarle tus anotaciones y desearle buen viaje',
+          successOutcome: EventOutcome(
+            description: 'Parte agradecido dejándote unas monedas de plata.',
+            statDelta: StatDelta(mood: 6, emotionalIntelligence: 4),
+            copperDelta: 600,
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'old_demon_king_relic',
+      stage: LifeStage.oldAge,
+      title: 'Reliquia del Rey Demonio',
+      narrativeBuilder: (_, npc) =>
+          'Un anticuario llamado $npc trae un fragmento sellado de armadura abisal hallado tras la gran guerra, pidiendo tu consejo.',
+      choices: const [
+        EventChoice(
+          id: 'seal_at_temple',
+          label: 'Exigir que sea sellado bajo custodia del templo',
+          successOutcome: EventOutcome(
+            description: 'Tu prudencia evita futuras tragedias; el templo te honra en oro.',
+            statDelta: StatDelta(emotionalIntelligence: 5, mood: 7),
+            copperDelta: 10000,
+          ),
+        ),
+        EventChoice(
+          id: 'study_abyss_metal',
+          label: 'Analizar el metal oscuro con cuidado extremo',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 60),
+          successOutcome: EventOutcome(
+            description: 'Descubres cómo neutralizar su miasma y vendes la fórmula a la Torre.',
+            statDelta: StatDelta(intellect: 5, mood: 7),
+            copperDelta: 12000,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Un resto de miasma debilita tu respiración durante días.',
+            statDelta: StatDelta(health: -12, mood: -5),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'old_forest_spirit_blessing',
+      stage: LifeStage.oldAge,
+      title: 'Bendición del Espíritu del Bosque',
+      narrativeBuilder: (hero, _) =>
+          'Mientras paseas por los linderos tranquilos, un antiguo espíritu silvestre reconoce la larga vida que has recorrido desde ${hero.villageName}.',
+      choices: const [
+        EventChoice(
+          id: 'accept_nature_vitality',
+          label: 'Recibir el aliento sereno del bosque',
+          successOutcome: EventOutcome(
+            description:
+                'Una calidez verde renueva tu vitalidad y calma tus dolencias.',
+            statDelta: StatDelta(health: 9, mood: 9),
+          ),
+        ),
+        EventChoice(
+          id: 'share_memories_of_world',
+          label: 'Contarle tus recuerdos de los dos mundos',
+          successOutcome: EventOutcome(
+            description: 'El espíritu escucha con reverencia dejando en ti una paz luminosa.',
+            statDelta: StatDelta(emotionalIntelligence: 6, mood: 10),
+          ),
+        ),
+      ],
+    ),
+
+    // =========================================================================
+    // EVENTOS ESCOLARES (+6 -> 84 eventos en total)
+    // =========================================================================
+    GameEventDefinition(
+      id: 'school_arithmetic_exam',
+      stage: LifeStage.childhood,
+      title: 'Examen de Aritmética y Letras',
+      requiresEnrolledInSchool: true,
+      narrativeBuilder: (_, npc) =>
+          'El maestro $npc reparte tablillas de cera con problemas de cálculo comercial y dictado para evaluar a la clase.',
+      choices: const [
+        EventChoice(
+          id: 'solve_with_modern_math',
+          label: 'Aplicar métodos rápidos de cálculo de tu otra vida',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 34),
+          successOutcome: EventOutcome(
+            description:
+                'Terminas primero con la nota más alta y recibes un premio del maestro.',
+            statDelta: StatDelta(intellect: 7, knowledge: 10, mood: 6),
+            copperDelta: 45,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Te confundes al convertir monedas antiguas y sacas nota justa.',
+            statDelta: StatDelta(intellect: 3, mood: -4),
+          ),
+        ),
+        EventChoice(
+          id: 'help_classmate_study',
+          label: 'Repasar tranquilamente y ayudar a tu compañero de banco',
+          successOutcome: EventOutcome(
+            description:
+                'Ambos aprueban con soltura y ganas respeto en el aula.',
+            statDelta: StatDelta(
+              intellect: 4,
+              knowledge: 6,
+              emotionalIntelligence: 4,
+            ),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'school_classroom_rivalry',
+      stage: LifeStage.childhood,
+      title: 'Rivalidad en el Aula',
+      requiresEnrolledInSchool: true,
+      narrativeBuilder: (_, npc) =>
+          '$npc, hijo de un mercader acomodado, presume de sus libros caros y se burla de tus ropas humildes en el patio escolar.',
+      choices: const [
+        EventChoice(
+          id: 'outshine_in_recitation',
+          label: 'Superarlo recitando los mapas e historia de memoria',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 36),
+          successOutcome: EventOutcome(
+            description:
+                'Toda la clase aplaude tu elocuencia y el rival guarda silencio.',
+            statDelta: StatDelta(intellect: 5, knowledge: 8, mood: 6),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Te trabas ante las risas, aunque prometes estudiar más duro.',
+            statDelta: StatDelta(mood: -5, intellect: 2),
+          ),
+        ),
+        EventChoice(
+          id: 'respond_with_dignity',
+          label: 'Responder con serenidad sin caer en provocaciones',
+          statCheck: StatCheck(
+            stat: StatType.emotionalIntelligence,
+            requiredScore: 32,
+          ),
+          successOutcome: EventOutcome(
+            description:
+                'Tu madurez deja en ridículo su arrogancia ante todos.',
+            statDelta: StatDelta(emotionalIntelligence: 6, mood: 5),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'El cruce de palabras te amarga la jornada escolar.',
+            statDelta: StatDelta(mood: -6),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'school_mana_theory_class',
+      stage: LifeStage.childhood,
+      title: 'Clase de Teoría del Maná',
+      requiresEnrolledInSchool: true,
+      requiresManaAwakened: true,
+      narrativeBuilder: (_, _) =>
+          'Un clérigo invitado enseña en la escuela los fundamentos elementales sobre los círculos mágicos y el flujo del maná.',
+      choices: const [
+        EventChoice(
+          id: 'practice_light_spark',
+          label: 'Intentar encender una chispa azul sobre tu dedo',
+          statCheck: StatCheck(stat: StatType.mana, requiredScore: 30),
+          successOutcome: EventOutcome(
+            description:
+                'Una llama azul clara baila sobre tu mano causando admiración.',
+            statDelta: StatDelta(mana: 7, magicPower: 10, knowledge: 8, mood: 7),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Solo logras un leve chispazo, pero comprendes mejor el principio.',
+            statDelta: StatDelta(mana: 3, intellect: 3),
+          ),
+        ),
+        EventChoice(
+          id: 'take_detailed_notes',
+          label: 'Tomar apuntes minuciosos sobre los diagramas rúnicos',
+          successOutcome: EventOutcome(
+            description:
+                'Guardas valiosos esquemas que serán útiles al crecer.',
+            statDelta: StatDelta(intellect: 5, knowledge: 10),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'school_county_debate',
+      stage: LifeStage.adolescence,
+      title: 'Debate Escolar de la Comarca',
+      requiresEnrolledInSchool: true,
+      narrativeBuilder: (_, npc) =>
+          'Tu escuela compite contra la villa vecina en un certamen de retórica, leyes y estrategia moderado por el juez $npc.',
+      choices: const [
+        EventChoice(
+          id: 'present_civic_argument',
+          label: 'Defender una reforma práctica basada en tu saber',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 44),
+          successOutcome: EventOutcome(
+            description:
+                'El jurado otorga el primer premio a tu escuela con bolsa de plata.',
+            statDelta: StatDelta(intellect: 6, knowledge: 25, mood: 7),
+            copperDelta: 160,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Los jueces conservadores no comprenden tus ideas novedosas.',
+            statDelta: StatDelta(knowledge: 10, mood: -4),
+          ),
+        ),
+        EventChoice(
+          id: 'sway_audience_empathy',
+          label: 'Apelar a las necesidades reales de los aldeanos',
+          statCheck: StatCheck(
+            stat: StatType.emotionalIntelligence,
+            requiredScore: 42,
+          ),
+          successOutcome: EventOutcome(
+            description:
+                'Conmueves al público y recibes una mención de honor.',
+            statDelta: StatDelta(emotionalIntelligence: 6, knowledge: 18, mood: 6),
+            copperDelta: 110,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Tu discurso queda corto frente a los oradores rivales.',
+            statDelta: StatDelta(mood: -4, emotionalIntelligence: 2),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'school_masters_books',
+      stage: LifeStage.adolescence,
+      title: 'Los Libros del Maestro',
+      requiresEnrolledInSchool: true,
+      narrativeBuilder: (_, npc) =>
+          'El maestro $npc te confía la llave de su biblioteca privada para catalogar viejos volúmenes de geografía, historia y magia.',
+      choices: const [
+        EventChoice(
+          id: 'study_night_volumes',
+          label: 'Leer a fondo los tomos de historia y estrategia',
+          successOutcome: EventOutcome(
+            description:
+                'Absorbes décadas de saber acumulado en los estantes.',
+            statDelta: StatDelta(intellect: 5, knowledge: 35, mood: 4),
+          ),
+        ),
+        EventChoice(
+          id: 'copy_arcane_treatise',
+          label: 'Transcribir y estudiar un tratado antiguo de energía mágica',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 42),
+          successOutcome: EventOutcome(
+            description:
+                'Entiendes fórmulas avanzadas que potencian tu maná y poder mágico.',
+            statDelta: StatDelta(magicPower: 30, mana: 12, knowledge: 20),
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'La caligrafía arcaica te da jaqueca y apenas descifras unas páginas.',
+            statDelta: StatDelta(knowledge: 10, mood: -3),
+          ),
+        ),
+      ],
+    ),
+    GameEventDefinition(
+      id: 'school_council_scholarship',
+      stage: LifeStage.adolescence,
+      title: 'Beca del Concejo Escolar',
+      requiresEnrolledInSchool: true,
+      narrativeBuilder: (hero, _) =>
+          'El concejo de ${hero.villageName} ofrece una ayuda en plata al alumno más aplicado para costear materiales y estudio.',
+      choices: const [
+        EventChoice(
+          id: 'apply_merit_scholarship',
+          label: 'Presentar tus calificaciones y examen práctico',
+          statCheck: StatCheck(stat: StatType.intellect, requiredScore: 45),
+          successOutcome: EventOutcome(
+            description:
+                'Obtienes la beca completa y un lote de pergaminos selectos.',
+            statDelta: StatDelta(intellect: 5, knowledge: 25, mood: 8),
+            copperDelta: 300,
+          ),
+          failureOutcome: EventOutcome(
+            description:
+                'Quedas segundo tras el hijo del escribano, aunque te dan un accésit.',
+            statDelta: StatDelta(knowledge: 10, mood: -3),
+            copperDelta: 60,
+          ),
+        ),
+        EventChoice(
+          id: 'tutor_younger_pupils',
+          label: 'Dar tutorías a los niños menores por una paga fija',
+          successOutcome: EventOutcome(
+            description:
+                'Enseñar consolida tus propios conocimientos y ganas plata.',
+            statDelta: StatDelta(
+              knowledge: 18,
+              emotionalIntelligence: 4,
+              mood: 4,
+            ),
+            copperDelta: 150,
+          ),
+        ),
+      ],
+    ),
   ];
 
   /// Devuelve los eventos pertenecientes a una etapa concreta.
@@ -2299,13 +3057,21 @@ class EventsCatalog {
     LifeStage stage,
     Protagonist hero,
     Set<String> seenEventIds,
-    Random rng,
-  ) {
-    final stageEvents = eventsForStage(stage);
+    Random rng, {
+    bool isEnrolledInSchool = false,
+  }) {
+    final stageEvents = eventsForStage(stage)
+        .where(
+          (e) =>
+              (!e.requiresManaAwakened || hero.manaAwakened) &&
+              (!e.requiresEnrolledInSchool || isEnrolledInSchool),
+        )
+        .toList();
     if (stageEvents.isEmpty) return null;
 
-    final unseen =
-        stageEvents.where((e) => !seenEventIds.contains(e.id)).toList();
+    final unseen = stageEvents
+        .where((e) => !seenEventIds.contains(e.id))
+        .toList();
     final pool = unseen.isNotEmpty ? unseen : stageEvents;
     final picked = pool[rng.nextInt(pool.length)];
     final npcName = pickRandomNpcName(rng);

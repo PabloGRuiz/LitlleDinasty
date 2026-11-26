@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../theme/medieval_theme.dart';
 
 /// Pestañas principales de la interfaz medieval RPG.
-enum LifeTab { hero, semester, profession, chronicles }
+enum LifeTab { hero, semester, social, profession, chronicles }
 
-/// Barra inferior con acceso a la ficha de vida, objetivos semestrales, oficios y crónicas.
+/// Barra inferior con acceso a Vida, Semestre, Social, Oficios y Crónicas.
 class MedievalBottomNavBar extends StatelessWidget {
   const MedievalBottomNavBar({
     super.key,
@@ -32,12 +32,12 @@ class MedievalBottomNavBar extends StatelessWidget {
           ),
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
       child: Row(
         children: [
           _NavItem(
             icon: Icons.person_outline_rounded,
-            label: 'Mi Vida',
+            label: 'Vida',
             selected: currentTab == LifeTab.hero,
             onTap: () => onSelectTab(LifeTab.hero),
           ),
@@ -47,6 +47,12 @@ class MedievalBottomNavBar extends StatelessWidget {
             selected: currentTab == LifeTab.semester,
             showBadge: showSemesterBadge,
             onTap: () => onSelectTab(LifeTab.semester),
+          ),
+          _NavItem(
+            icon: Icons.people_outline_rounded,
+            label: 'Social',
+            selected: currentTab == LifeTab.social,
+            onTap: () => onSelectTab(LifeTab.social),
           ),
           _NavItem(
             icon: Icons.explore_outlined,
@@ -92,7 +98,7 @@ class _NavItem extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 2),
           decoration: BoxDecoration(
             color: selected
                 ? MedievalColors.forestGreenBg
@@ -105,14 +111,14 @@ class _NavItem extends StatelessWidget {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Icon(icon, size: 20, color: fgColor),
+                  Icon(icon, size: 19, color: fgColor),
                   if (showBadge)
                     Positioned(
                       right: -4,
                       top: -2,
                       child: Container(
-                        width: 8,
-                        height: 8,
+                        width: 7,
+                        height: 7,
                         decoration: const BoxDecoration(
                           color: MedievalColors.crimsonSeal,
                           shape: BoxShape.circle,
@@ -127,7 +133,7 @@ class _NavItem extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: 11,
+                  fontSize: 10.5,
                   fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
                   color: fgColor,
                 ),
